@@ -4,10 +4,7 @@
  * Purpose: Defines the Class Resourse
  ***********************************************************************/
 package com.zigong.model;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.*;
 
 @Entity
@@ -17,6 +14,7 @@ public class Resourse {
    private int resourseId;
    private String resourseName;
    private String resourseUrl;
+   @ManyToOne
    private Mail mail;
 
    public Resourse() {

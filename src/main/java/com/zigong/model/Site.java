@@ -4,10 +4,7 @@
  * Purpose: Defines the Class Site
  ***********************************************************************/
 package com.zigong.model;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.*;
 
 @Entity
@@ -17,7 +14,9 @@ public class Site {
    private int siteId;
    private String siteName;
    private String siteUrl;
+   @ManyToOne
    private Box box;
+   @ManyToOne
    private User user;
 
    public Site() {

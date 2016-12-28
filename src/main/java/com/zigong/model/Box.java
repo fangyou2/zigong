@@ -4,10 +4,7 @@
  * Purpose: Defines the Class Box
  ***********************************************************************/
 package com.zigong.model;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.*;
 
 @Entity
@@ -15,14 +12,15 @@ public class Box {
    @Id
    @GeneratedValue(strategy= GenerationType.AUTO)
    private int boxId;
-   private java.lang.String boxName;
-   private java.lang.String boxPassword;
+   private String boxName;
+   private String boxPassword;
 
-   private Set<Mail> mail;
-   private Set<Log> log;
-   private Set<Site> site;
-   private Set<Box> boxB;
-   private Set<File> file;
+//   private Set<Mail> mail;
+//   private Set<Log> log;
+//   private Set<Site> site;
+//   private Set<Box> boxB;
+//   private Set<File> file;
+   @ManyToOne
    private Box boxA;
 
    public Box() {
@@ -32,11 +30,11 @@ public class Box {
 
       this.boxName = boxName;
       this.boxPassword = boxPassword;
-      this.mail = mail;
-      this.log = log;
-      this.site = site;
-      this.boxB = boxB;
-      this.file = file;
+//      this.mail = mail;
+//      this.log = log;
+//      this.site = site;
+//      this.boxB = boxB;
+//      this.file = file;
       this.boxA = boxA;
    }
 
@@ -64,45 +62,45 @@ public class Box {
       this.boxPassword = boxPassword;
    }
 
-   public Set<Mail> getMail() {
-      return mail;
-   }
-
-   public void setMail(Set<Mail> mail) {
-      this.mail = mail;
-   }
-
-   public Set<Log> getLog() {
-      return log;
-   }
-
-   public void setLog(Set<Log> log) {
-      this.log = log;
-   }
-
-   public Set<Site> getSite() {
-      return site;
-   }
-
-   public void setSite(Set<Site> site) {
-      this.site = site;
-   }
-
-   public Set<Box> getBoxB() {
-      return boxB;
-   }
-
-   public void setBoxB(Set<Box> boxB) {
-      this.boxB = boxB;
-   }
-
-   public Set<File> getFile() {
-      return file;
-   }
-
-   public void setFile(Set<File> file) {
-      this.file = file;
-   }
+//   public Set<Mail> getMail() {
+//      return mail;
+//   }
+//
+//   public void setMail(Set<Mail> mail) {
+//      this.mail = mail;
+//   }
+//
+//   public Set<Log> getLog() {
+//      return log;
+//   }
+//
+//   public void setLog(Set<Log> log) {
+//      this.log = log;
+//   }
+//
+//   public Set<Site> getSite() {
+//      return site;
+//   }
+//
+//   public void setSite(Set<Site> site) {
+//      this.site = site;
+//   }
+//
+//   public Set<Box> getBoxB() {
+//      return boxB;
+//   }
+//
+//   public void setBoxB(Set<Box> boxB) {
+//      this.boxB = boxB;
+//   }
+//
+//   public Set<File> getFile() {
+//      return file;
+//   }
+//
+//   public void setFile(Set<File> file) {
+//      this.file = file;
+//   }
 
    public Box getBoxA() {
       return boxA;

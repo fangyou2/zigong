@@ -4,10 +4,7 @@
  * Purpose: Defines the Class User
  ***********************************************************************/
 package com.zigong.model;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.*;
 
 @Entity
@@ -19,24 +16,25 @@ public class User {
    private String userPassword;
    private String userPhone;
    private String userAddress;
-   private Set<Mail> mail;
-   private Set<Log> log;
-   private Set<Site> site;
-   private Set<Groups> group;
+//   @OneToMany(mappedBy="")
+//   private Set<Mail> mail;
+//   private Set<Log> log;
+//   private Set<Site> site;
+//   private Set<Groups> group;
 
    public User() {
    }
 
-   public User(int userId, String userName, String userPassword, String userPhone, String userAddress, Set<Mail> mail, Set<Log> log, Set<Site> site, Set<Groups> group) {
+   public User(int userId, String userName, String userPassword, String userPhone, String userAddress) {
       this.userId = userId;
       this.userName = userName;
       this.userPassword = userPassword;
       this.userPhone = userPhone;
       this.userAddress = userAddress;
-      this.mail = mail;
-      this.log = log;
-      this.site = site;
-      this.group = group;
+//      this.mail = mail;
+//      this.log = log;
+//      this.site = site;
+//      this.group = group;
    }
 
    public int getUserId() {
@@ -79,35 +77,35 @@ public class User {
       this.userAddress = userAddress;
    }
 
-   public Set<Mail> getMail() {
-      return mail;
-   }
-
-   public void setMail(Set<Mail> mail) {
-      this.mail = mail;
-   }
-
-   public Set<Log> getLog() {
-      return log;
-   }
-
-   public void setLog(Set<Log> log) {
-      this.log = log;
-   }
-
-   public Set<Site> getSite() {
-      return site;
-   }
-
-   public void setSite(Set<Site> site) {
-      this.site = site;
-   }
-
-   public Set<Groups> getGroup() {
-      return group;
-   }
-
-   public void setGroup(Set<Groups> group) {
-      this.group = group;
-   }
+//   public Set<Mail> getMail() {
+//      return mail;
+//   }
+//
+//   public void setMail(Set<Mail> mail) {
+//      this.mail = mail;
+//   }
+//
+//   public Set<Log> getLog() {
+//      return log;
+//   }
+//
+//   public void setLog(Set<Log> log) {
+//      this.log = log;
+//   }
+//
+//   public Set<Site> getSite() {
+//      return site;
+//   }
+//
+//   public void setSite(Set<Site> site) {
+//      this.site = site;
+//   }
+//
+//   public Set<Groups> getGroup() {
+//      return group;
+//   }
+//
+//   public void setGroup(Set<Groups> group) {
+//      this.group = group;
+//   }
 }

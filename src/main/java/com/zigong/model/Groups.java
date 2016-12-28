@@ -16,14 +16,14 @@ public class Groups {
    @GeneratedValue(strategy= GenerationType.AUTO)
    private int groupId;
    private String groupName;
-   private Set<User> user;
+//   private Set<User> user;
 
    public Groups() {
    }
 
    public Groups(String groupName, Set<User> user) {
       this.groupName = groupName;
-      this.user = user;
+//      this.user = user;
    }
 
    public int getGroupId() {
@@ -42,11 +42,11 @@ public class Groups {
       this.groupName = groupName;
    }
 
-   public Set<User> getUser() {
-      return user;
-   }
-
-   public void setUser(Set<User> user) {
-      this.user = user;
-   }
+//   public Set<User> getUser() {
+//      return user;
+//   }
+//
+//   public void setUser(Set<User> user) {
+//      this.user = user;
+//   }
 }

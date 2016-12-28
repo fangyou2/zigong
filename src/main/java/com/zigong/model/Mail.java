@@ -20,9 +20,9 @@ public class Mail {
    public Date mailTime;
    public boolean mailRead;
    public String mailRemark;
-   public Set<Resourse> resourse;
-   public Set<User> user;
-   public Set<Box> box;
+//   public Set<Resourse> resourse;
+//   public Set<User> user;
+//   public Set<Box> box;
 
    public Mail() {
    }
@@ -33,9 +33,9 @@ public class Mail {
       this.mailTime = mailTime;
       this.mailRead = mailRead;
       this.mailRemark = mailRemark;
-      this.resourse = resourse;
-      this.user = user;
-      this.box = box;
+//      this.resourse = resourse;
+//      this.user = user;
+//      this.box = box;
    }
 
    public int getMailId() {
@@ -86,27 +86,27 @@ public class Mail {
       this.mailRemark = mailRemark;
    }
 
-   public Set<Resourse> getResourse() {
-      return resourse;
-   }
-
-   public void setResourse(Set<Resourse> resourse) {
-      this.resourse = resourse;
-   }
-
-   public Set<User> getUser() {
-      return user;
-   }
-
-   public void setUser(Set<User> user) {
-      this.user = user;
-   }
-
-   public Set<Box> getBox() {
-      return box;
-   }
-
-   public void setBox(Set<Box> box) {
-      this.box = box;
-   }
+//   public Set<Resourse> getResourse() {
+//      return resourse;
+//   }
+//
+//   public void setResourse(Set<Resourse> resourse) {
+//      this.resourse = resourse;
+//   }
+//
+//   public Set<User> getUser() {
+//      return user;
+//   }
+//
+//   public void setUser(Set<User> user) {
+//      this.user = user;
+//   }
+//
+//   public Set<Box> getBox() {
+//      return box;
+//   }
+//
+//   public void setBox(Set<Box> box) {
+//      this.box = box;
+//   }
 }

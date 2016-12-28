@@ -4,10 +4,7 @@
  * Purpose: Defines the Class Log
  ***********************************************************************/
 package com.zigong.model;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.*;
 
 @Entity
@@ -17,7 +14,9 @@ public class Log {
    private int logId;
    private String logTitle;
    private String logContent;
+   @ManyToOne
    private User user;
+   @ManyToOne
    private Box box;
 
    public Log() {

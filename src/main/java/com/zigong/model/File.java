@@ -4,10 +4,7 @@
  * Purpose: Defines the Class File
  ***********************************************************************/
 package com.zigong.model;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.*;
 
 @Entity
@@ -17,6 +14,7 @@ public class File {
    private int fileId;
    private String fileName;
    private String fileUrl;
+   @ManyToOne
    private Box box;
 
    public File() {
