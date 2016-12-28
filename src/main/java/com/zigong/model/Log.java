@@ -1,0 +1,72 @@
+/***********************************************************************
+ * Module:  Log.java
+ * Author:  Administrator
+ * Purpose: Defines the Class Log
+ ***********************************************************************/
+package com.zigong.model;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import java.util.*;
+
+@Entity
+public class Log {
+   @Id
+   @GeneratedValue(strategy= GenerationType.AUTO)
+   private int logId;
+   private String logTitle;
+   private String logContent;
+   private User user;
+   private Box box;
+
+   public Log() {
+   }
+
+   public Log(String logTitle, String logContent, User user, Box box) {
+      this.logTitle = logTitle;
+      this.logContent = logContent;
+      this.user = user;
+      this.box = box;
+   }
+
+   public int getLogId() {
+      return logId;
+   }
+
+   public void setLogId(int logId) {
+      this.logId = logId;
+   }
+
+   public String getLogTitle() {
+      return logTitle;
+   }
+
+   public void setLogTitle(String logTitle) {
+      this.logTitle = logTitle;
+   }
+
+   public String getLogContent() {
+      return logContent;
+   }
+
+   public void setLogContent(String logContent) {
+      this.logContent = logContent;
+   }
+
+   public User getUser() {
+      return user;
+   }
+
+   public void setUser(User user) {
+      this.user = user;
+   }
+
+   public Box getBox() {
+      return box;
+   }
+
+   public void setBox(Box box) {
+      this.box = box;
+   }
+}
