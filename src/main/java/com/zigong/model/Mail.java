@@ -4,37 +4,36 @@
  * Purpose: Defines the Class Mail
  ***********************************************************************/
 package com.zigong.model;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.*;
 
 @Entity
 public class Mail {
    @Id
    @GeneratedValue(strategy= GenerationType.AUTO)
-   public int mailId;
-   public String mailType;
-   public String mailTitle;
-   public Date mailTime;
-   public boolean mailRead;
-   public String mailRemark;
+   private int mailId;
+   private String mailType;
+   private String mailTitle;
+   private Date mailTime;
+   private boolean mailRead;
+   private String mailRemark;
+   @ManyToOne(cascade=CascadeType.ALL)
+   private User user;
+
 //   public Set<Resourse> resourse;
-//   public Set<User> user;
 //   public Set<Box> box;
 
    public Mail() {
    }
 
-   public Mail(String mailType, String mailTitle, Date mailTime, boolean mailRead, String mailRemark, Set<Resourse> resourse, Set<User> user, Set<Box> box) {
+   public Mail(String mailType, String mailTitle, Date mailTime, boolean mailRead, String mailRemark, Set<Resourse> resourse, User user, Set<Box> box) {
       this.mailType = mailType;
       this.mailTitle = mailTitle;
       this.mailTime = mailTime;
       this.mailRead = mailRead;
       this.mailRemark = mailRemark;
 //      this.resourse = resourse;
-//      this.user = user;
+      this.user = user;
 //      this.box = box;
    }
 
@@ -86,27 +85,11 @@ public class Mail {
       this.mailRemark = mailRemark;
    }
 
-//   public Set<Resourse> getResourse() {
-//      return resourse;
-//   }
-//
-//   public void setResourse(Set<Resourse> resourse) {
-//      this.resourse = resourse;
-//   }
-//
-//   public Set<User> getUser() {
-//      return user;
-//   }
-//
-//   public void setUser(Set<User> user) {
-//      this.user = user;
-//   }
-//
-//   public Set<Box> getBox() {
-//      return box;
-//   }
-//
-//   public void setBox(Set<Box> box) {
-//      this.box = box;
-//   }
+   public User getUser() {
+      return user;
+   }
+
+   public void setUser(User user) {
+      this.user = user;
+   }
 }

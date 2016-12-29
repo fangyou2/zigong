@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
  * Created by Administrator on 2016/12/27.
  */
 @RestController
-@RequestMapping
+@RequestMapping("/user")
 public class UserController {
     @Autowired
     private UserService userService;

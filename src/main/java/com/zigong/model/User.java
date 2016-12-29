@@ -16,8 +16,8 @@ public class User {
    private String userPassword;
    private String userPhone;
    private String userAddress;
-//   @OneToMany(mappedBy="")
-//   private Set<Mail> mail;
+   @OneToMany(cascade=CascadeType.ALL,mappedBy ="user")
+   private Set<Mail> mail;
 //   private Set<Log> log;
 //   private Set<Site> site;
 //   private Set<Groups> group;
@@ -31,7 +31,7 @@ public class User {
       this.userPassword = userPassword;
       this.userPhone = userPhone;
       this.userAddress = userAddress;
-//      this.mail = mail;
+      this.mail = mail;
 //      this.log = log;
 //      this.site = site;
 //      this.group = group;
@@ -77,13 +77,13 @@ public class User {
       this.userAddress = userAddress;
    }
 
-//   public Set<Mail> getMail() {
-//      return mail;
-//   }
-//
-//   public void setMail(Set<Mail> mail) {
-//      this.mail = mail;
-//   }
+   public Set<Mail> getMail() {
+      return mail;
+   }
+
+   public void setMail(Set<Mail> mail) {
+      this.mail = mail;
+   }
 //
 //   public Set<Log> getLog() {
 //      return log;
