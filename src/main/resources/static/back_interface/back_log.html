@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>日志</title>
+    <script src="http://cdn.gbtags.com/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://cdn.gbtags.com/twitter-bootstrap/3.2.0/js/bootstrap.js"></script>
+    <script src="http://cdn.gbtags.com/summernote/0.5.2/summernote.min.js"></script>
+    <script src="http://cdn.bootcss.com/summernote/0.8.2/lang/summernote-zh-CN.min.js"></script>
+    <link rel="stylesheet" rev="stylesheet" href="http://cdn.gbtags.com/twitter-bootstrap/3.2.0/css/bootstrap.css"
+          type="text/css" media="all"/>
+    <link rel="stylesheet" rev="stylesheet" href="http://cdn.gbtags.com/font-awesome/4.1.0/css/font-awesome.min.css"
+          type="text/css" media="all"/>
+    <link rel="stylesheet" rev="stylesheet" href="http://cdn.gbtags.com/summernote/0.5.2/summernote.css" type="text/css"
+          media="all"/>
+</head>
+<body>
+<div hidden="hidden">
+    <input type="text" style="width: 30%" class="form-control" placeholder="日志标题">
+    <button type="button" class="btn btn-success pull-right">提交</button>
+    <hr>
+    <div id="editor"></div>
+</div>
+<div>
+dsa
+</div>
+</body>
+</html>
+<script>
+    $('#editor').summernote({height: 450, lang: 'zh-CN'});
+</script>
