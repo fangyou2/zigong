@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.HashSet;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class UserTest {
@@ -20,6 +22,7 @@ public class UserTest {
 		User user = new User();
 		user.setUserName("自贡市政府");
 		user.setUserPassword("dsafewr4324321dw");
+		user.setMail(new HashSet<>());
 		boolean result = userService.register(user);
 		Assert.assertEquals(true,result);
 	}

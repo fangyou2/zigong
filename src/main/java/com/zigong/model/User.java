@@ -16,8 +16,8 @@ public class User {
    private String userPassword;
    private String userPhone;
    private String userAddress;
-   @OneToMany(cascade=CascadeType.ALL,mappedBy ="user")
-   private Set<Mail> mail;
+   @OneToMany(cascade=CascadeType.ALL,mappedBy ="user",fetch = FetchType.LAZY)
+   private Set<Mail> mail=new HashSet<Mail>();
 //   private Set<Log> log;
 //   private Set<Site> site;
 //   private Set<Groups> group;

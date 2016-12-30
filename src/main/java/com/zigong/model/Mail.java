@@ -17,7 +17,8 @@ public class Mail {
    private Date mailTime;
    private boolean mailRead;
    private String mailRemark;
-   @ManyToOne(cascade=CascadeType.ALL)
+   @OneToOne(cascade = {CascadeType.MERGE,CascadeType.REFRESH},fetch = FetchType.LAZY)
+   @JoinColumn(name = "user")
    private User user;
 
 //   public Set<Resourse> resourse;
