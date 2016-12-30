@@ -7,7 +7,7 @@ package com.zigong.model;
 import javax.persistence.*;
 import java.util.*;
 
-@Entity
+//@Entity
 public class Resourse {
    @Id
    @GeneratedValue(strategy= GenerationType.AUTO)

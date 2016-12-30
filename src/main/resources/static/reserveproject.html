@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>储备项目</title>
+    <style>
+        .font-c{color: #F32043}
+        .div1-1{width: 100%;}
+        table
+        {   border-collapse:   separate;   border-spacing:   15px;   }
+    </style>
+</head>
+<body>
+<div id="div1-1" class="div1-1">
+   <form>
+       <table class="div1-1">
+           <tr>
+               <td class="font-c">项目名称:
+               <td colspan="7"><input type="text" style="width: 100%"></td>
+                <td><input type="button" value="重复检测"></td>
+           </tr>
+           <tr style="color:seagreen; background-color:lightsteelblue;font-size: 20px">
+               <td colspan="9">项目储备信息</td></tr>
+           <tr><td class="font-c">储备批次</td>
+               <td><select>
+                   <option value="(请选择)">(请选择)</option>
+                   <option value="第一批">第一批</option>
+                   <option value="第二批">第二批</option>
+                   <option value="第三批">第三批</option>
+               </select></td>
+               <td><input type="checkbox">是否对上争取支持的在建项目</td>
+           </tr>
+           <tr><td>储备状态:</td>
+              <td>储备中</td>
+               <td class="font-c">入库时间:</td>
+               <td><input type="datetime"></td></tr>
+           <tr><td class="font-c">储备阶段:</td>
+                <td><select>
+                    <option value="(请选择)">(请选择)</option>
+                    <option value="准备中">准备中</option>
+                    <option value="准备完毕">准备完毕</option>
+                </select></td>
+                <td class="font-c">投资方式:</td>
+                <td><input type="text">
+                    <input type="button" value="搜索"></td></tr>
+           <tr><td class="font-c">项目用途:</td>
+               <td><input type="text">
+                   <input type="button" value="搜索"></td>
+                 <td class="font-c">下达资金:</td>
+                  <td><input type="text"></td>
+                  <td><h6>(万元)</h6></td></tr>
+           <tr>
+               <td>行业规划名称:</td>
+               <td><input type="text"></td>
+               <td class="font-c">所属行业:</td>
+               <td><select>
+                   <option value="(请选择)">(请选择)</option>
+                   <option value="Java工程">Java工程</option>
+                   <option value="软件工程">软件工程</option>
+                   <option value="硬件工程">硬件工程</option>
+               </select></td>
+           </tr>
+           <tr><td class="font-c">拟建设地点:</td>
+               <td><input type="text"></td>
+                <td class="font-c">匡算总投资(万元):</td>
+                 <td><input type="text"></td></tr>
+           <tr><td class="font-c">建设必要性:</td>
+               <td colspan="7"><textarea style="width: 100%;height: 40px"></textarea> </td></tr>
+           <tr><td class="font-c">拟建设内容:</td>
+               <td colspan="7"><textarea style="width: 100%;height: 40px"></textarea> </td></tr>
+           <tr><td class="font-c">目前工作进度:</td>
+               <td><select>
+                   <option value="(请选择)">(请选择)</option>
+                   <option value="已完成">已完成</option>
+                   <option value="还在进行中">还在进行中</option>
+               </select></td>
+                 <td>工程咨询机构:</td>
+                <td><input type="text"></td>
+               </tr>
+           <tr><td class="font-c">目前工作描述:</td>
+               <td colspan="7"><textarea style="width: 100%;height: 50px"></textarea> </td></tr>
+           <tr><td class="font-c">本年底前拟达到的工作进度:</td>
+               <td colspan="7"><textarea style="width: 100%;height: 30px"></textarea> </td></tr>
+           <tr><td class="font-c">储备部门(报送单位):</td>
+                <td><input type="text">
+                    <input type="button" value="搜索"></td>
+               <td class="font-c">报送时间:</td>
+                   <td><input type="datetime"></td>
+                </tr>
+       </table><br>
+       <div style="float: right ;margin-right: 50px">
+           <span style="color: red"> 注意：红色为必须填写项!</span>
+           <input type="button" value="保存" style="font-size: 24px;color:white;background-color: deepskyblue">
+           <input type="button" value="关闭" style="font-size: 24px;color: white;background-color: blue">
+       </div>
+   </form>
+</div>
+</body>
+</html>
