@@ -7,6 +7,9 @@ package com.zigong.model;
 import javax.persistence.*;
 import java.util.*;
 
+/**项目
+ * 资源model
+ */
 //@Entity
 public class Resourse {
    @Id

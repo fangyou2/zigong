@@ -10,6 +10,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.*;
 
+/**
+ * 许可model
+ */
 @Entity
 public class Premission {
    @Id
