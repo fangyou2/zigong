@@ -4,10 +4,7 @@
  * Purpose: Defines the Class Premission
  ***********************************************************************/
 package com.zigong.model;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.*;
 
 @Entity
@@ -16,6 +13,8 @@ public class Premission {
    @GeneratedValue(strategy= GenerationType.AUTO)
    private int premissionId;
    private String premissionName;
+   @ManyToMany(cascade=CascadeType.ALL,mappedBy = "premission",fetch = FetchType.LAZY)
+   private Set<Groups> groups;
 
    public Premission() {
    }
@@ -38,5 +37,13 @@ public class Premission {
 
    public void setPremissionName(String premissionName) {
       this.premissionName = premissionName;
+   }
+
+   public Set<Groups> getGroups() {
+      return groups;
+   }
+
+   public void setGroups(Set<Groups> groups) {
+      this.groups = groups;
    }
 }

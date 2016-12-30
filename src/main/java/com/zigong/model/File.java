@@ -14,7 +14,9 @@ public class File {
    private int fileId;
    private String fileName;
    private String fileUrl;
-   @ManyToOne
+
+   @OneToOne(cascade = {CascadeType.MERGE,CascadeType.REFRESH},fetch = FetchType.LAZY)
+   @JoinColumn(name = "box")
    private Box box;
 
    public File() {

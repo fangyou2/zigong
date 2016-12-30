@@ -14,10 +14,13 @@ public class Log {
    private int logId;
    private String logTitle;
    private String logContent;
-   @ManyToOne
-   private User user;
-   @ManyToOne
+   @OneToOne(cascade = {CascadeType.MERGE, CascadeType.REFRESH}, fetch = FetchType.LAZY)
+   @JoinColumn(name = "box")
    private Box box;
+
+   @OneToOne(cascade = {CascadeType.MERGE, CascadeType.REFRESH}, fetch = FetchType.LAZY)
+   @JoinColumn(name = "user")
+   private User user;
 
    public Log() {
    }
@@ -68,4 +71,5 @@ public class Log {
    public void setBox(Box box) {
       this.box = box;
    }
+
 }

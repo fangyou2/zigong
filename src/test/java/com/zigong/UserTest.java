@@ -22,7 +22,7 @@ public class UserTest {
 		User user = new User();
 		user.setUserName("自贡市政府");
 		user.setUserPassword("dsafewr4324321dw");
-		user.setMail(new HashSet<>());
+//		user.setMail(new HashSet<>());
 		boolean result = userService.register(user);
 		Assert.assertEquals(true,result);
 	}

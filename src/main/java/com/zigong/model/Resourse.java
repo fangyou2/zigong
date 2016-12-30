@@ -7,14 +7,15 @@ package com.zigong.model;
 import javax.persistence.*;
 import java.util.*;
 
-//@Entity
+@Entity
 public class Resourse {
    @Id
    @GeneratedValue(strategy= GenerationType.AUTO)
    private int resourseId;
    private String resourseName;
    private String resourseUrl;
-   @ManyToOne
+   @OneToOne(cascade = {CascadeType.MERGE,CascadeType.REFRESH},fetch = FetchType.LAZY)
+   @JoinColumn(name = "mail")
    private Mail mail;
 
    public Resourse() {

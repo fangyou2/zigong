@@ -4,109 +4,114 @@
  * Purpose: Defines the Class Box
  ***********************************************************************/
 package com.zigong.model;
+
 import javax.persistence.*;
 import java.util.*;
 
 @Entity
 public class Box {
-   @Id
-   @GeneratedValue(strategy= GenerationType.AUTO)
-   private int boxId;
-   private String boxName;
-   private String boxPassword;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int boxId;
+    private String boxName;
+    private String boxPassword;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "box", fetch = FetchType.LAZY)
+    private Set<Mail> mail;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "box", fetch = FetchType.LAZY)
+    private Set<Log> log;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "box", fetch = FetchType.LAZY)
+    private Set<Site> site;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "box", fetch = FetchType.LAZY)
+    private Set<File> file;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "box", fetch = FetchType.LAZY)
+    private Set<Box> boxs;
+    @OneToOne(cascade = {CascadeType.MERGE,CascadeType.REFRESH},fetch = FetchType.LAZY)
+    @JoinColumn(name = "box")
+    private Box box;
 
-//   private Set<Mail> mail;
-//   private Set<Log> log;
-//   private Set<Site> site;
-//   private Set<Box> boxB;
-//   private Set<File> file;
-   @ManyToOne
-   private Box boxA;
+    public Box() {
+    }
 
-   public Box() {
-   }
+    public Box(String boxName, String boxPassword, Set<Mail> mail, Set<Log> log, Set<Site> site, Set<File> file, Set<Box> boxs, Box box) {
+        this.boxName = boxName;
+        this.boxPassword = boxPassword;
+        this.mail = mail;
+        this.log = log;
+        this.site = site;
+        this.file = file;
+        this.boxs = boxs;
+        this.box = box;
+    }
 
-   public Box(String boxName, String boxPassword, Set<Mail> mail, Set<Log> log, Set<Site> site, Set<Box> boxB, Set<File> file, Box boxA) {
+    public int getBoxId() {
+        return boxId;
+    }
 
-      this.boxName = boxName;
-      this.boxPassword = boxPassword;
-//      this.mail = mail;
-//      this.log = log;
-//      this.site = site;
-//      this.boxB = boxB;
-//      this.file = file;
-      this.boxA = boxA;
-   }
+    public void setBoxId(int boxId) {
+        this.boxId = boxId;
+    }
 
-   public int getBoxId() {
-      return boxId;
-   }
+    public String getBoxName() {
+        return boxName;
+    }
 
-   public void setBoxId(int boxId) {
-      this.boxId = boxId;
-   }
+    public void setBoxName(String boxName) {
+        this.boxName = boxName;
+    }
 
-   public String getBoxName() {
-      return boxName;
-   }
+    public String getBoxPassword() {
+        return boxPassword;
+    }
 
-   public void setBoxName(String boxName) {
-      this.boxName = boxName;
-   }
+    public void setBoxPassword(String boxPassword) {
+        this.boxPassword = boxPassword;
+    }
 
-   public String getBoxPassword() {
-      return boxPassword;
-   }
+    public Set<Mail> getMail() {
+        return mail;
+    }
 
-   public void setBoxPassword(String boxPassword) {
-      this.boxPassword = boxPassword;
-   }
+    public void setMail(Set<Mail> mail) {
+        this.mail = mail;
+    }
 
-//   public Set<Mail> getMail() {
-//      return mail;
-//   }
-//
-//   public void setMail(Set<Mail> mail) {
-//      this.mail = mail;
-//   }
-//
-//   public Set<Log> getLog() {
-//      return log;
-//   }
-//
-//   public void setLog(Set<Log> log) {
-//      this.log = log;
-//   }
-//
-//   public Set<Site> getSite() {
-//      return site;
-//   }
-//
-//   public void setSite(Set<Site> site) {
-//      this.site = site;
-//   }
-//
-//   public Set<Box> getBoxB() {
-//      return boxB;
-//   }
-//
-//   public void setBoxB(Set<Box> boxB) {
-//      this.boxB = boxB;
-//   }
-//
-//   public Set<File> getFile() {
-//      return file;
-//   }
-//
-//   public void setFile(Set<File> file) {
-//      this.file = file;
-//   }
+    public Set<Log> getLog() {
+        return log;
+    }
 
-   public Box getBoxA() {
-      return boxA;
-   }
+    public void setLog(Set<Log> log) {
+        this.log = log;
+    }
 
-   public void setBoxA(Box boxA) {
-      this.boxA = boxA;
-   }
+    public Set<Site> getSite() {
+        return site;
+    }
+
+    public void setSite(Set<Site> site) {
+        this.site = site;
+    }
+
+    public Set<File> getFile() {
+        return file;
+    }
+
+    public void setFile(Set<File> file) {
+        this.file = file;
+    }
+
+    public Set<Box> getBoxs() {
+        return boxs;
+    }
+
+    public void setBoxs(Set<Box> boxs) {
+        this.boxs = boxs;
+    }
+
+    public Box getBox() {
+        return box;
+    }
+
+    public void setBox(Box box) {
+        this.box = box;
+    }
 }

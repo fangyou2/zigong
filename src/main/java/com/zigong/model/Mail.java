@@ -21,8 +21,12 @@ public class Mail {
    @JoinColumn(name = "user")
    private User user;
 
-//   public Set<Resourse> resourse;
-//   public Set<Box> box;
+   @OneToMany(cascade=CascadeType.ALL,mappedBy ="mail",fetch = FetchType.LAZY)
+   private Set<Resourse> resourse;
+
+   @OneToOne(cascade = {CascadeType.MERGE,CascadeType.REFRESH},fetch = FetchType.LAZY)
+   @JoinColumn(name = "box")
+   private Box box;
 
    public Mail() {
    }

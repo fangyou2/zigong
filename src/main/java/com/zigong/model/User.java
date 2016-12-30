@@ -18,9 +18,13 @@ public class User {
    private String userAddress;
    @OneToMany(cascade=CascadeType.ALL,mappedBy ="user",fetch = FetchType.LAZY)
    private Set<Mail> mail=new HashSet<Mail>();
-//   private Set<Log> log;
-//   private Set<Site> site;
-//   private Set<Groups> group;
+   @OneToMany(cascade=CascadeType.ALL,mappedBy ="user",fetch = FetchType.LAZY)
+   private Set<Log> log=new HashSet<Log>();
+   @OneToMany(cascade=CascadeType.ALL,mappedBy ="user",fetch = FetchType.LAZY)
+   private Set<Site> site=new HashSet<Site>();
+   @OneToOne(cascade = {CascadeType.MERGE,CascadeType.REFRESH},fetch = FetchType.LAZY)
+   @JoinColumn(name = "groups")
+   private Groups groups;
 
    public User() {
    }
@@ -31,10 +35,6 @@ public class User {
       this.userPassword = userPassword;
       this.userPhone = userPhone;
       this.userAddress = userAddress;
-      this.mail = mail;
-//      this.log = log;
-//      this.site = site;
-//      this.group = group;
    }
 
    public int getUserId() {
@@ -84,28 +84,28 @@ public class User {
    public void setMail(Set<Mail> mail) {
       this.mail = mail;
    }
-//
-//   public Set<Log> getLog() {
-//      return log;
-//   }
-//
-//   public void setLog(Set<Log> log) {
-//      this.log = log;
-//   }
-//
-//   public Set<Site> getSite() {
-//      return site;
-//   }
-//
-//   public void setSite(Set<Site> site) {
-//      this.site = site;
-//   }
-//
-//   public Set<Groups> getGroup() {
-//      return group;
-//   }
-//
-//   public void setGroup(Set<Groups> group) {
-//      this.group = group;
-//   }
+
+   public Set<Log> getLog() {
+      return log;
+   }
+
+   public void setLog(Set<Log> log) {
+      this.log = log;
+   }
+
+   public Set<Site> getSite() {
+      return site;
+   }
+
+   public void setSite(Set<Site> site) {
+      this.site = site;
+   }
+
+   public Groups getGroups() {
+      return groups;
+   }
+
+   public void setGroups(Groups groups) {
+      this.groups = groups;
+   }
 }
