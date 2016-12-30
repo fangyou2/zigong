@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class BoxController {
     @Autowired
     private BoxService boxService;
+public void test(){
 
+}
 
 }
