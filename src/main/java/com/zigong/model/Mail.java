@@ -7,6 +7,9 @@ package com.zigong.model;
 import javax.persistence.*;
 import java.util.*;
 
+/**
+ * 邮件model
+ */
 @Entity
 public class Mail {
    @Id

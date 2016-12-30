@@ -7,6 +7,9 @@ package com.zigong.model;
 import javax.persistence.*;
 import java.util.*;
 
+/**
+ * 许可model
+ */
 @Entity
 public class Premission {
    @Id
