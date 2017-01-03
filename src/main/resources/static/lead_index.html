@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>lead_index</title>
     <link href="lead_css/lead.css" rel="stylesheet" type="text/css">
+    <script src="http://static.runoob.com/assets/vue/1.0.11/vue.min.js"></script>
     <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
     <script type="text/javascript">
         $(function(){
@@ -15,6 +16,31 @@
                 $("#userNo").show();
             }
         });
+    </script>
+    <script>
+        var site= new Vue({
+            el: '#ProjectType',
+            data: {
+                projectTypes: [],
+            },
+            methods: {
+                setSite: function () {
+                    $.ajax({
+                        type: "post",
+                        url: "lead/findProjectType",
+                        contentType: "application/json; charset=utf-8",
+                        success: function (data) {
+                            var d=$("input#showTime").val(eval('(' + data.d + ')')[0].demoData);
+                            alert("date:"+ d)
+                            this.projectTypes =[d];
+                        }
+                    });
+                }
+            },//        先加载里面的所有方法
+            ready: function () {
+                this.setSite();
+            }
+        })
     </script>
 </head>
 <body>
@@ -75,39 +101,15 @@
                             <th width="17%">已完工项目数</th>
                         </tr>
                         </thead>
-                        <tbody>
-                        <tr>
+                        <tbody id="ProjectType">
+                        <tr v-for="p in projectTypes">
                             <td>重点项目库</td>
-                            <td>584</td>
+                            <td>{{p.projectAddress}}</td>
                             <td>10487.5</td>
                             <td>182</td>
                             <td>191</td>
                             <td>0</td>
                         </tr>
-                    <tr>
-                        <td>灾后从建项目库</td>
-                        <td>584</td>
-                        <td>10487.5</td>
-                        <td>182</td>
-                        <td>191</td>
-                        <td>0</td>
-                    </tr>
-                    <tr>
-                        <td>重点项目库</td>
-                        <td>584</td>
-                        <td>10487.5</td>
-                        <td>182</td>
-                        <td>191</td>
-                        <td>0</td>
-                    </tr>
-                    <tr>
-                        <td>重点项目库</td>
-                        <td>584</td>
-                        <td>10487.5</td>
-                        <td>182</td>
-                        <td>191</td>
-                        <td>0</td>
-                    </tr>
                     </tbody>
                 </table>
 

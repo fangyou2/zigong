@@ -9,28 +9,28 @@ import javax.persistence.*;
 public class Reserve {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer reserve_number;//项目编号
+    private Integer reserveNumber;//项目编号
 
-    private String reserve_pc;//储备批次
-    private Boolean reserve_isdszqzc;//是否对上争取支持的在建项目
-    private String reserve_state;//储备状态
-    private String reserve_rksj;//入库时间
-    private String reserve_cbjd;//储备阶段
-    private String reserve_tzfs;//投资方式
-    private String reserve_xmyt;//项目用途
-    private String reserve_xdzj;//下达资金
-    private String reserve_hyghmc;//行业规划名称
-    private String reserve_sshy;//所属行业
-    private String reserve_njsdd;//拟建设地点
-    private String reserve_ksztz;//匡算总投资
-    private String reserve_jsbyx;//建设必要性
-    private String reserve_njsnr;//拟建设内容
-    private String reserve_mqgzjd;//目前工作进度
-    private String reserve_gczxjg;//工程咨询机构
-    private String reserve_yjdddegzjd;//本年底前达到的工作进度
-    private String reserve_mqgzjdms;//目前工作进度描述
-    private String reserve_cbbm;//储备部门（报送单位）
-    private String reserve_bssj;//报送时间
+    private String reservePc;//储备批次
+    private Boolean reserveIsdszqzc;//是否对上争取支持的在建项目
+    private String reserveState;//储备状态
+    private String reserveRksj;//入库时间
+    private String reserveCbjd;//储备阶段
+    private String reserveTzfs;//投资方式
+    private String reserveXmyt;//项目用途
+    private String reserveXdzj;//下达资金
+    private String reserveHyghmc;//行业规划名称
+    private String reserveSshy;//所属行业
+    private String reserveNjsdd;//拟建设地点
+    private String reserveKsztz;//匡算总投资
+    private String reserveJsbyx;//建设必要性
+    private String reserveNjsnr;//拟建设内容
+    private String reserveMqgzjd;//目前工作进度
+    private String reserveGczxjg;//工程咨询机构
+    private String reserveYjdddegzjd;//本年底前达到的工作进度
+    private String reserveMqgzjdms;//目前工作进度描述
+    private String reserveCbbm;//储备部门（报送单位）
+    private String reserveBssj;//报送时间
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="project_number")
@@ -40,172 +40,172 @@ public class Reserve {
     public Reserve() {
     }
 
-    public Integer getReserve_number() {
-        return reserve_number;
+    public Integer getReserveNumber() {
+        return reserveNumber;
     }
 
-    public void setReserve_number(Integer reserve_number) {
-        this.reserve_number = reserve_number;
+    public void setReserveNumber(Integer reserveNumber) {
+        this.reserveNumber = reserveNumber;
     }
 
-    public String getReserve_pc() {
-        return reserve_pc;
+    public String getReservePc() {
+        return reservePc;
     }
 
-    public void setReserve_pc(String reserve_pc) {
-        this.reserve_pc = reserve_pc;
+    public void setReservePc(String reservePc) {
+        this.reservePc = reservePc;
     }
 
-    public Boolean getReserve_isdszqzc() {
-        return reserve_isdszqzc;
+    public Boolean getReserveIsdszqzc() {
+        return reserveIsdszqzc;
     }
 
-    public void setReserve_isdszqzc(Boolean reserve_isdszqzc) {
-        this.reserve_isdszqzc = reserve_isdszqzc;
+    public void setReserveIsdszqzc(Boolean reserveIsdszqzc) {
+        this.reserveIsdszqzc = reserveIsdszqzc;
     }
 
-    public String getReserve_state() {
-        return reserve_state;
+    public String getReserveState() {
+        return reserveState;
     }
 
-    public void setReserve_state(String reserve_state) {
-        this.reserve_state = reserve_state;
+    public void setReserveState(String reserveState) {
+        this.reserveState = reserveState;
     }
 
-    public String getReserve_rksj() {
-        return reserve_rksj;
+    public String getReserveRksj() {
+        return reserveRksj;
     }
 
-    public void setReserve_rksj(String reserve_rksj) {
-        this.reserve_rksj = reserve_rksj;
+    public void setReserveRksj(String reserveRksj) {
+        this.reserveRksj = reserveRksj;
     }
 
-    public String getReserve_cbjd() {
-        return reserve_cbjd;
+    public String getReserveCbjd() {
+        return reserveCbjd;
     }
 
-    public void setReserve_cbjd(String reserve_cbjd) {
-        this.reserve_cbjd = reserve_cbjd;
+    public void setReserveCbjd(String reserveCbjd) {
+        this.reserveCbjd = reserveCbjd;
     }
 
-    public String getReserve_tzfs() {
-        return reserve_tzfs;
+    public String getReserveTzfs() {
+        return reserveTzfs;
     }
 
-    public void setReserve_tzfs(String reserve_tzfs) {
-        this.reserve_tzfs = reserve_tzfs;
+    public void setReserveTzfs(String reserveTzfs) {
+        this.reserveTzfs = reserveTzfs;
     }
 
-    public String getReserve_xmyt() {
-        return reserve_xmyt;
+    public String getReserveXmyt() {
+        return reserveXmyt;
     }
 
-    public void setReserve_xmyt(String reserve_xmyt) {
-        this.reserve_xmyt = reserve_xmyt;
+    public void setReserveXmyt(String reserveXmyt) {
+        this.reserveXmyt = reserveXmyt;
     }
 
-    public String getReserve_xdzj() {
-        return reserve_xdzj;
+    public String getReserveXdzj() {
+        return reserveXdzj;
     }
 
-    public void setReserve_xdzj(String reserve_xdzj) {
-        this.reserve_xdzj = reserve_xdzj;
+    public void setReserveXdzj(String reserveXdzj) {
+        this.reserveXdzj = reserveXdzj;
     }
 
-    public String getReserve_hyghmc() {
-        return reserve_hyghmc;
+    public String getReserveHyghmc() {
+        return reserveHyghmc;
     }
 
-    public void setReserve_hyghmc(String reserve_hyghmc) {
-        this.reserve_hyghmc = reserve_hyghmc;
+    public void setReserveHyghmc(String reserveHyghmc) {
+        this.reserveHyghmc = reserveHyghmc;
     }
 
-    public String getReserve_sshy() {
-        return reserve_sshy;
+    public String getReserveSshy() {
+        return reserveSshy;
     }
 
-    public void setReserve_sshy(String reserve_sshy) {
-        this.reserve_sshy = reserve_sshy;
+    public void setReserveSshy(String reserveSshy) {
+        this.reserveSshy = reserveSshy;
     }
 
-    public String getReserve_njsdd() {
-        return reserve_njsdd;
+    public String getReserveNjsdd() {
+        return reserveNjsdd;
     }
 
-    public void setReserve_njsdd(String reserve_njsdd) {
-        this.reserve_njsdd = reserve_njsdd;
+    public void setReserveNjsdd(String reserveNjsdd) {
+        this.reserveNjsdd = reserveNjsdd;
     }
 
-    public String getReserve_ksztz() {
-        return reserve_ksztz;
+    public String getReserveKsztz() {
+        return reserveKsztz;
     }
 
-    public void setReserve_ksztz(String reserve_ksztz) {
-        this.reserve_ksztz = reserve_ksztz;
+    public void setReserveKsztz(String reserveKsztz) {
+        this.reserveKsztz = reserveKsztz;
     }
 
-    public String getReserve_jsbyx() {
-        return reserve_jsbyx;
+    public String getReserveJsbyx() {
+        return reserveJsbyx;
     }
 
-    public void setReserve_jsbyx(String reserve_jsbyx) {
-        this.reserve_jsbyx = reserve_jsbyx;
+    public void setReserveJsbyx(String reserveJsbyx) {
+        this.reserveJsbyx = reserveJsbyx;
     }
 
-    public String getReserve_njsnr() {
-        return reserve_njsnr;
+    public String getReserveNjsnr() {
+        return reserveNjsnr;
     }
 
-    public void setReserve_njsnr(String reserve_njsnr) {
-        this.reserve_njsnr = reserve_njsnr;
+    public void setReserveNjsnr(String reserveNjsnr) {
+        this.reserveNjsnr = reserveNjsnr;
     }
 
-    public String getReserve_mqgzjd() {
-        return reserve_mqgzjd;
+    public String getReserveMqgzjd() {
+        return reserveMqgzjd;
     }
 
-    public void setReserve_mqgzjd(String reserve_mqgzjd) {
-        this.reserve_mqgzjd = reserve_mqgzjd;
+    public void setReserveMqgzjd(String reserveMqgzjd) {
+        this.reserveMqgzjd = reserveMqgzjd;
     }
 
-    public String getReserve_gczxjg() {
-        return reserve_gczxjg;
+    public String getReserveGczxjg() {
+        return reserveGczxjg;
     }
 
-    public void setReserve_gczxjg(String reserve_gczxjg) {
-        this.reserve_gczxjg = reserve_gczxjg;
+    public void setReserveGczxjg(String reserveGczxjg) {
+        this.reserveGczxjg = reserveGczxjg;
     }
 
-    public String getReserve_yjdddegzjd() {
-        return reserve_yjdddegzjd;
+    public String getReserveYjdddegzjd() {
+        return reserveYjdddegzjd;
     }
 
-    public void setReserve_yjdddegzjd(String reserve_yjdddegzjd) {
-        this.reserve_yjdddegzjd = reserve_yjdddegzjd;
+    public void setReserveYjdddegzjd(String reserveYjdddegzjd) {
+        this.reserveYjdddegzjd = reserveYjdddegzjd;
     }
 
-    public String getReserve_mqgzjdms() {
-        return reserve_mqgzjdms;
+    public String getReserveMqgzjdms() {
+        return reserveMqgzjdms;
     }
 
-    public void setReserve_mqgzjdms(String reserve_mqgzjdms) {
-        this.reserve_mqgzjdms = reserve_mqgzjdms;
+    public void setReserveMqgzjdms(String reserveMqgzjdms) {
+        this.reserveMqgzjdms = reserveMqgzjdms;
     }
 
-    public String getReserve_cbbm() {
-        return reserve_cbbm;
+    public String getReserveCbbm() {
+        return reserveCbbm;
     }
 
-    public void setReserve_cbbm(String reserve_cbbm) {
-        this.reserve_cbbm = reserve_cbbm;
+    public void setReserveCbbm(String reserveCbbm) {
+        this.reserveCbbm = reserveCbbm;
     }
 
-    public String getReserve_bssj() {
-        return reserve_bssj;
+    public String getReserveBssj() {
+        return reserveBssj;
     }
 
-    public void setReserve_bssj(String reserve_bssj) {
-        this.reserve_bssj = reserve_bssj;
+    public void setReserveBssj(String reserveBssj) {
+        this.reserveBssj = reserveBssj;
     }
 
     public Project getProject() {
