@@ -12,4 +12,12 @@ import org.springframework.stereotype.Component;
 public class ProjectService {
     @Autowired
     private ProjectDao projectDao;
+
+    /**
+     * 添加项目
+     */
+    public void addProject(Project project) {
+        projectDao.save(project);
+
+    }
 }
