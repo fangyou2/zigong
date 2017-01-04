@@ -1,6 +1,7 @@
 package com.zigong.model.project;
 
 import javax.persistence.*;
+import java.util.Date;
 
 /**项目
  * Created by 罗健 on 2016/12/28.
@@ -25,7 +26,7 @@ public class Project {
 
     private String projectSzqx;//所在区县
     private String projectState;//建设状态
-    private String projectYjztz;//预计总投资
+    private double projectYjztz;//预计总投资
     private String projectJsxz;//建设性质
     private String projectJscsnx;//建设初始年
     private String projectJszznx;//建设最终年
@@ -33,10 +34,10 @@ public class Project {
     private String projectContent;//建设内容
     private String projectBackground;//建设背景
     private String projectYjjjhshxy;//预计经济和社会效益
-    private String projectJhkgsj;//计划开工时间
-    private String projectSjkgsj;//实际开工时间
-    private String projectJhjgsj;//计划竣工时间
-    private String projectSjjgsj;//实际竣工时间
+    private Date projectJhkgsj;//计划开工时间
+    private Date projectSjkgsj;//实际开工时间
+    private Date projectJhjgsj;//计划竣工时间
+    private Date projectSjjgsj;//实际竣工时间
 
     private Boolean projectIzsyzxm;//是否招商引资项目
     private Boolean projectIsgzxm;//是否国债项目
@@ -153,11 +154,11 @@ public class Project {
         this.projectState = projectState;
     }
 
-    public String getProjectYjztz() {
+    public double getProjectYjztz() {
         return projectYjztz;
     }
 
-    public void setProjectYjztz(String projectYjztz) {
+    public void setProjectYjztz(double projectYjztz) {
         this.projectYjztz = projectYjztz;
     }
 
@@ -217,35 +218,35 @@ public class Project {
         this.projectYjjjhshxy = projectYjjjhshxy;
     }
 
-    public String getProjectJhkgsj() {
+    public Date getProjectJhkgsj() {
         return projectJhkgsj;
     }
 
-    public void setProjectJhkgsj(String projectJhkgsj) {
+    public void setProjectJhkgsj(Date projectJhkgsj) {
         this.projectJhkgsj = projectJhkgsj;
     }
 
-    public String getProjectSjkgsj() {
+    public Date getProjectSjkgsj() {
         return projectSjkgsj;
     }
 
-    public void setProjectSjkgsj(String projectSjkgsj) {
+    public void setProjectSjkgsj(Date projectSjkgsj) {
         this.projectSjkgsj = projectSjkgsj;
     }
 
-    public String getProjectJhjgsj() {
+    public Date getProjectJhjgsj() {
         return projectJhjgsj;
     }
 
-    public void setProjectJhjgsj(String projectJhjgsj) {
+    public void setProjectJhjgsj(Date projectJhjgsj) {
         this.projectJhjgsj = projectJhjgsj;
     }
 
-    public String getProjectSjjgsj() {
+    public Date getProjectSjjgsj() {
         return projectSjjgsj;
     }
 
-    public void setProjectSjjgsj(String projectSjjgsj) {
+    public void setProjectSjjgsj(Date projectSjjgsj) {
         this.projectSjjgsj = projectSjjgsj;
     }
 

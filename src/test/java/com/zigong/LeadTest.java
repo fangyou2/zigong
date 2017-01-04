@@ -23,6 +23,7 @@ public class LeadTest {
     @Autowired
     private LeadService leadService;
 
+//    查询所有
     @Test
     public void findProject() {
         List<Project> projects = leadService.findProject();
@@ -30,22 +31,34 @@ public class LeadTest {
         Assert.assertNotNull(projects);
     }
 
+    //添加一条记录
     @Test
     public void addProject() {
         Project project = new Project();
-        project.setProjectNumber(3);
-        project.setProjectAddress("富顺县");
+//        project.setProjectXmfl("重点项目库");
+          project.setProjectXmfl("项目储备库");
+//        project.setProjectXmfl("全市项目库");
+        project.setProjectAddress("大安区");
         leadService.save(project);
 
     }
+    //修改
     @Test
-    public void addProject1() {
-        //int total = leadService.total();
-       // System.out.println(total);
+    public void updateProject1() {
+            Project p=leadService.findById(5);
+            p.setProjectAddress("大安区");
+            leadService.save(p);
+    }
+    //删除
+    @Test
+    public void delProject1() {
+          leadService.delete(4);
     }
 
+
+//    统计查询
     @Test
-    public void addProject2() {
+    public void countProject2() {
         Set<Project> projects=leadService.countTypeNum();
         System.out.println(projects.size());
     }
