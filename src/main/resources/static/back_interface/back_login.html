@@ -6,6 +6,7 @@
 	<title></title>
 	<link rel="stylesheet" href="../css/reset.css" />
 	<link rel="stylesheet" href="../css/login.css" />
+	<script src="http://cdn.gbtags.com/jquery/1.11.1/jquery.min.js"></script>
 </head>
 <body>
 <div class="page">
@@ -15,11 +16,11 @@
 			<form id="Login" name="Login" method="post" onsubmit="" action="">
 				<li class="login-item">
 					<span>用户名：</span>
-					<input type="text" name="UserName" class="login_input">
+					<input type="text" name="userId" class="login_input">
 				</li>
 				<li class="login-item">
 					<span>密　码：</span>
-					<input type="password" name="password" class="login_input">
+					<input type="password" name="userPassword" class="login_input">
 				</li>
 				<!--<li class="login-item verify">-->
 					<!--<span>验证码：</span>-->
@@ -28,11 +29,26 @@
 				<!--<img src="images/verify.png" border="0" class="verifyimg" />-->
 				<div class="clearfix"></div>
 				<li class="login-sub">
-					<input type="submit" name="Submit" value="登录" />
-				</li>                      
+					<input type="button" onclick="login()" name="Submit" value="登录" />
+				</li>
            </form>
 		</div>
 	</div>
 </div>
 </body>
 </html>
+<script>
+function login(){
+	$.ajax({
+		url: "http://localhost:8080/user/login",
+		data:{userId:$("input[type='text']").val(),userPassword:$("input[type='password']").val()},
+		success: function(html){
+			if(!html){
+				alert("登录失败！");
+			}else{
+				location.href="http://localhost:8080/back_interface/back_index.html";
+			}
+		}
+	});
+}
+</script>

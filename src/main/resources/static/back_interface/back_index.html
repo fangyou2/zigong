@@ -6,17 +6,19 @@
 	<title></title>
 	<link rel="stylesheet" href="../css/reset.css">
 	<link rel="stylesheet" href="../css/public.css">
+	<script src="http://cdn.gbtags.com/jquery/1.11.1/jquery.min.js"></script>
+	<script src="http://static.runoob.com/assets/vue/1.0.11/vue.min.js"></script>
 </head>
 <body>
-<div class="public-header-warrp">
+<div class="public-header-warrp" id="user">
 	<div class="public-header">
 		<div class="content">
 			<div class="public-header-logo"><a href=""><i>LOGO</i><h3>拓思诺爱科技</h3></a></div>
 			<div class="public-header-admin fr">
-				<p class="admin-name">****管理员 您好！</p>
+				<p class="admin-name">{{user.userName}}管理员 您好！</p>
 				<div class="public-header-fun fr">
 					<a href="" class="public-header-man">管理</a>
-					<a href="" class="public-header-loginout">安全退出</a>
+					<a onclick="logout()" class="public-header-loginout">安全退出</a>
 				</div>
 			</div>
 		</div>
@@ -156,9 +158,8 @@
 					<a href="javascript:;">用户信息</a>
 					<div class="ifame-item-sub">
 						<ul>
-							<li><a href="#" target="content">用户信息修改</a></li>
-							<li><a href="#" target="content">密码修改</a></li>
-							<li><a href="#" target="content">信息列表</a>|<a href="#" target="content">添加</a></li>
+							<li><a href="back_other.html" target="content">用户信息修改</a></li>
+							<li><a href="back_user.html" target="content">密码修改</a></li>
 						</ul>
 					</div>
 				</li>
@@ -191,6 +192,41 @@ $().ready(function(){
 		});
 	}
 });
+</script>
+<script>
+	function logout(){
+		$.ajax({
+			url: "http://localhost:8080/user/logout",
+			success: function(html){
+				location.href="http://localhost:8080/back_interface/back_login.html";
+			}
+		});
+	}
+</script>
+<script>
+	var user=new Vue({
+		el: '#user',
+		data: {
+			user: {}
+		},
+		methods: {
+			get: function () {
+				$.ajax({
+					url: "http://localhost:8080/user/get",
+					success: function(html){
+						user.user=html;
+						var Days = 30;
+						var exp = new Date();
+						exp.setTime(exp.getTime() + Days*24*60*60*1000);
+						document.cookie = name + "="+ escape (html.userName) + ";expires=" + exp.toGMTString();
+					}
+				});
+			}
+		},
+		ready: function () {
+			this.get();
+		}
+	})
 </script>
 </body>
 </html>

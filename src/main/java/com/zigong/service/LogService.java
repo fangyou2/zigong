@@ -17,10 +17,13 @@ public class LogService {
     @Autowired
     private LogDao logDao;
 
-    public boolean addLog(Log log){
+    public boolean addLog(Log log,User user){
         boolean result=false;
-        if(logDao.save(log)!=null){
-            result=true;
+        if(user!=null){
+            log.setUser(user);
+            if(logDao.save(log)!=null){
+                result=true;
+            }
         }
         return result;
     }

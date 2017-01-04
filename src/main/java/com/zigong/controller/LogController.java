@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpSession;
+import java.util.Set;
 
 /**
  * Created by Administrator on 2016/12/27.
@@ -24,9 +25,23 @@ public class LogController {
 
     @RequestMapping(value = "/get/{id}")
     @ResponseBody
-    public Log getMail(@PathVariable("id") int id) {
+    public Log getLog(@PathVariable("id") int id) {
         Log log = logService.getLog(id);
         return log;
+    }
+
+    @RequestMapping(value = "/gets")
+    @ResponseBody
+    public Set<Log> getLogs(HttpSession session) {
+        Set<Log> logs=null;
+        User user = (User) session.getAttribute("user");
+        if(user!=null){
+           logs = logService.getLogs(user);
+        }
+        for (Log log:logs){
+            log.setUser(null);
+        }
+        return logs;
     }
 
     @RequestMapping(value = "/delete/{id}")
@@ -37,13 +52,15 @@ public class LogController {
 
     @RequestMapping(value = "/edit")
     @ResponseBody
-    public boolean editLog(Log log) {
-        return logService.addLog(log);
+    public boolean editLog(Log log,HttpSession session) {
+        User user = (User) session.getAttribute("user");
+        return logService.addLog(log,user);
     }
 
     @RequestMapping(value = "/add")
     @ResponseBody
-    public boolean addLog(Log log) {
-        return logService.addLog(log);
+    public boolean addLog(Log log,HttpSession session) {
+        User user = (User) session.getAttribute("user");
+        return logService.addLog(log,user);
     }
 }

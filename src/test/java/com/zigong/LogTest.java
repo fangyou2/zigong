@@ -20,17 +20,17 @@ public class LogTest {
     @Autowired
     private LogService logService;
 
-    @Test
-    public void add() {
-        Log log = new Log();
-        log.setLogTitle("3211");
-        log.setLogContent("dafsa");
-        User user = new User();
-        user.setUserId(1);
-        log.setUser(user);
-        boolean b = logService.addLog(log);
-        Assert.assertTrue(b);
-    }
+//    @Test
+//    public void add() {
+//        Log log = new Log();
+//        log.setLogTitle("3211");
+//        log.setLogContent("dafsa");
+//        User user = new User();
+//        user.setUserId(1);
+//        log.setUser(user);
+//        boolean b = logService.addLog(log);
+//        Assert.assertTrue(b);
+//    }
 
     @Test
     public void getOne() {

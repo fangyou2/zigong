@@ -55,4 +55,14 @@ public class UserController {
         session.removeAttribute("user");
         return true;
     }
+    @RequestMapping(value = "/get")
+    @ResponseBody
+    public User getName(HttpSession session) {
+        User user = (User) session.getAttribute("user");
+        user.setGroups(null);
+        user.setLog(null);
+        user.setMail(null);
+        user.setSite(null);
+        return user;
+    }
 }

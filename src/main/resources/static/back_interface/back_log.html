@@ -13,19 +13,76 @@
           type="text/css" media="all"/>
     <link rel="stylesheet" rev="stylesheet" href="http://cdn.gbtags.com/summernote/0.5.2/summernote.css" type="text/css"
           media="all"/>
+    <script src="http://static.runoob.com/assets/vue/1.0.11/vue.min.js"></script>
 </head>
 <body>
-<div hidden="hidden">
+<div id="add" hidden="hidden">
     <input type="text" style="width: 30%" class="form-control" placeholder="日志标题">
-    <button type="button" class="btn btn-success pull-right">提交</button>
+    <button onclick="app.add()" type="button" class="btn btn-success pull-right">提交</button>
     <hr>
     <div id="editor"></div>
 </div>
-<div>
-dsa
+<div id="app">
+    <table class="table">
+        <caption>我的日志</caption>
+        <thead>
+        <tr>
+            <th>编号</th>
+            <th>标题</th>
+            <th>内容</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="success" v-for="temp in temps">
+            <td>{{temp.logId}}</td>
+            <td>{{temp.logTitle}}</td>
+            <td>{{temp.logContent}}</td>
+            <td>
+                <button type="button" class="btn btn-danger">删除</button>|
+                <button type="button" class="btn btn-success">修改</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <button onclick="show()" type="button" class="btn btn-success">添加</button>
 </div>
 </body>
 </html>
 <script>
+    function show() {
+        $("#add").removeAttr("hidden");
+        $("#app").attr("hidden", "hidden");
+    }
     $('#editor').summernote({height: 450, lang: 'zh-CN'});
+    var app = new Vue({
+        el: '#app',
+        data: {
+            temps: {}
+        },
+        methods: {
+            get: function () {
+                $.ajax({
+                    url: "http://localhost:8080/log/gets",
+                    success: function (html) {
+                        app.temps = html;
+                    }
+                });
+            },
+            add: function () {
+                var logContent = $('#editor').code();
+                var logTitle = $("input[type='text']").val();
+                $.ajax({
+                    url: "http://localhost:8080/log/add",
+                    data: {logTitle: logTitle, logContent: logContent},
+                    success: function (html) {
+                        alert(html)
+                    }
+                });
+            }
+        },
+        ready: function () {
+            this.get();
+        }
+    })
 </script>
