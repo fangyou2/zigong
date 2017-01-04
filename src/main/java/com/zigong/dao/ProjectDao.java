@@ -12,4 +12,8 @@ import org.springframework.stereotype.Component;
 @Component
 public  interface  ProjectDao extends JpaRepository<Project, Integer> {
 
+    public Project findByProjectNumber(Integer projectNumber);
+
+
 }
+
