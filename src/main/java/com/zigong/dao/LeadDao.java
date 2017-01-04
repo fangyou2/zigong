@@ -13,4 +13,5 @@ import java.util.Set;
 @Component
 public interface LeadDao extends JpaRepository<Project,Integer> {
     Set<Project> findByProjectXmfl(String type);
+    Project findByProjectNumber(Integer id);
 }
