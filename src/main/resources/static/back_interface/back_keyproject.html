@@ -2,182 +2,202 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>重点项目</title>
+    <title>项目</title>
     <style>
-        .font-c{color: #F32043}
-        table
-        {   border-collapse:   separate;   border-spacing:   10px;   }
+        .font-c {
+            color: #F32043
+        }
+
+        table {
+            border-collapse: separate;
+            border-spacing: 10px;
+        }
     </style>
 </head>
 <body>
-  <div id="div1-1">
-      <input type="radio" name="project" value="1" >项目明细信息
-      <input type="radio" name="project" value="2">项目年度信息
-      <input type="radio" name="project" value="3">完成
-      <hr style="background-color: #F32043">
-  </div>
-  <div id="div1-2">
-      <p><h3>第一步：请填写项目明细信息<span class="font-c">(红色为必填选项)</span></h3></p>
-      <form>
-          <table>
-              <tr>
-                  <td class="font-c">项目名称:</td>
-                  <td colspan="5">
-                      <input type="text" style="width:100%">
-                  </td>
-                  <td>
-                      <input type="button"  value="重复检测">
-                  </td>
-                  <td>
-                      <input type="button"  value="填报须知">
-                  </td>
-              </tr>
-              <tr style="color:dimgrey;background-color:lightsteelblue;font-size: 24px">
-                  <td colspan="8">业主信息</td>
-              </tr>
-              <tr><td class="font-c">项目业主:</td>
-                  <td><input type="text"></td>
-                  <td>业主法人代表:</td>
-                  <td><input type="text"></td>
-                  <td>项目报送联系人:</td>
-                  <td><input type="text"></td>
-                  <td class="font-c">项目报送联系人手机:</td>
-                  <td><input type="text"></td>
-               </tr>
-              <tr style="color:dimgrey;background-color:lightsteelblue;font-size: 24px">
-                  <td colspan="8">项目分类</td>
-              </tr>
-              <tr>
-                  <td>是否招商引资项目:</td>
-                  <td><input type="checkbox"></td>
-                  <td>是否国债项目:</td>
-                  <td><input type="checkbox"></td>
-                  <td>是否引进项目:</td>
-                  <td><input type="checkbox"></td>
-                  <td>是否政府投资项目:</td>
-                  <td><input type="checkbox"></td>
-              </tr>
-              <tr>
-                  <td class="font-c">项目分类:</td>
-                  <td colspan="2"><input type="text">
-                       <input type="button" value="搜索"></td>
-                  <td class="font-c">区县项目分类:</td>
-                  <td colspan="2"><input type="text">
-                      <input type="button" value="搜索"></td>
-               </tr>
-              <tr><td>是否节能减排项目:</td>
-                  <td><input type="checkbox"></td></tr>
-              <tr><td>是否新兴产业:</td>
-                  <td><input type="checkbox"></td>
-                  <td>新兴产业分类:</td>
-                  <td><select>
-                      <option value="(请选择)">(请选择)</option>
-                      <option value="电子商务">电子商务</option>
-                      <option value="计算机类">计算机类</option>
-                      <option value="金融投资">金融投资</option>
-                      <option value="环保行业">环保行业</option>
-                  </select></td>
-                  <td>所属市级战略功能区:</td>
-                  <td><select>
-                      <option value="(请选择)">(请选择)</option>
-                      <option value="高新区">高新区</option>
-                      <option value="自流井区">自流井区</option>
-                      <option value="大安区">大安区</option>
-                      <option value="贡井区">贡井区</option>
-                  </select></td>
-              </tr>
-              <tr style="color:dimgrey;background-color:lightsteelblue;font-size: 24px">
-                  <td colspan="8">项目信息</td>
-              </tr>
-              <tr>
-                  <td class="font-c">所在区(市)县:</td>
-                  <td><select>
-                      <option value="(请选择)">(请选择)</option>
-                      <option value="高新区">高新区</option>
-                      <option value="自流井区">自流井区</option>
-                      <option value="大安区">大安区</option>
-                      <option value="贡井区">贡井区</option>
-                  </select></td>
-                  <td>建设状态:</td>
-                  <td><select>
-                      <option value="(请选择)">(请选择)</option>
-                      <option value="完美">完美</option>
-                      <option value="较好">较好</option>
-                      <option value="及格">及格</option>
-                      <option value="很差">很差</option>
-                  </select></td>
-              </tr>
-              <tr><td class="font-c">预计总投资(万元):</td>
-                  <td><input type="text"></td>
-                  <td>建设性质:</td>
-                  <td><select>
-                      <option value="(请选择)">(请选择)</option>
-                      <option value="大型项目">大型项目</option>
-                      <option value="中型项目">中型项目</option>
-                      <option value="小型项目">小型项目</option>
-                  </select></td>
-                  <td class="font-c">建设年限:</td>
-                  <td colspan="4">
-                  <select style="float: left;padding-top: 20px">
-                      <option value="(请选择)">(请选择)</option>
-                      <option value="2016年12月">2016年12月</option>
-                      <option value="2017年2月">2017年2月</option>
-                      <option value="2017年6月">2017年6月</option>
-                  </select>
-                   <h5 style="float: left">至</h5>
-                   <select style="float: left;padding-top: 20px">
-                   <option value="(请选择)">(请选择)</option>
-                   <option value="2017年2月">2017年2月</option>
-                   <option value="2017年8月">2017年8月</option>
-                   <option value="2017年12月">2017年12月</option>
-                   </select></td>
-              </tr>
-              <tr>
-                  <td>建设地址:</td>
-                  <td><input type="text"></td>
-              </tr>
-              <tr><td class="font-c">建设内容:</td>
-              <td colspan="6"><textarea name="txt" style="width: 100%;height: 100%"></textarea></td>
-              </tr>
-              <tr><td>建设背景:</td>
-                  <td colspan="6"><textarea name="txt" style="width: 100%;height: 100%"></textarea></td></tr>
-              </tr>
-              <tr><td>预计经济和社会效益:</td>
-                  <td colspan="6"><textarea name="txt" style="width: 100%;height: 100%"></textarea></td></tr>
-              </tr>
-              <tr>
-                  <td>计划开工时间:</td>
-                  <td><input type="datetime"></td>
-                  <td>实际开工时间:</td>
-                  <td><input type="datetime"></td>
-                  <td>计划竣工时间:</td>
-                  <td><input type="datetime"></td>
-                  <td>实际开工时间:</td>
-                  <td><input type="datetime"></td>
-              </tr>
-              <tr style="color:dimgrey;background-color:lightsteelblue;font-size: 24px">
-                  <td colspan="8">市级主管部门:</td>
-              </tr>
-              <tr><td>分管领导:</td>
-                  <td colspan="2"><input type="text">
-                      <input type="button" value="搜索"></td>
-                  <td>报送单位:</td>
-                  <td colspan="2"><input type="text">
-                      <input type="button" value="搜索"></td></tr>
-              <tr><td class="font-c">市级行业主管部门:</td>
-                  <td colspan="2"><input type="text">
-                      <input type="button" value="搜索"></td>
-                  <td class="font-c">责任部门:</td>
-                  <td colspan="2"><input type="text">
-                      <input type="button" value="搜索"></td></tr>
-          </table>
-          <br>
-          <br>
-          <div style="float: right ;margin-right: 50px">
-                 <input type="button" value="取消" style="font-size: 24px;color:white;background-color: deepskyblue">
-                 <input type="button" value="下一步" style="font-size: 24px;color: white;background-color: blue">
-          </div>
-      </form>
-  </div>
+<div id="div1-1">
+    <input type="radio" name="project" value="1">项目明细信息
+    <input type="radio" name="project" value="2">项目年度信息
+    <input type="radio" name="project" value="3">完成
+    <hr style="background-color: #F32043">
+</div>
+<div id="div1-2">
+    <p>
+    <h3>第一步：请填写项目明细信息<span class="font-c">(红色为必填选项)</span></h3></p>
+    <form action="../project/addProject">
+        <table>
+            <tr>
+                <td class="font-c">项目名称:</td>
+                <td colspan="5">
+                    <input type="text" value="学生管理系统" style="width:100%" name="projectName">
+                </td>
+                <td>
+                    <input type="button" value="重复检测">
+                </td>
+                <td>
+                    <input type="button" value="填报须知">
+                </td>
+            </tr>
+            <tr style="color:dimgrey;background-color:lightsteelblue;font-size: 24px">
+                <td colspan="8">业主信息</td>
+            </tr>
+            <tr>
+                <td class="font-c">项目业主:</td>
+                <td><input type="text" value="罗健" name="projectOwner"></td>
+                <td>业主法人代表:</td>
+                <td><input type="text" value="钟辉" name="projectFddbr"></td>
+                <td>项目报送联系人:</td>
+                <td><input type="text" value="周涛" name="projectBslxr"></td>
+                <td class="font-c">项目报送联系人手机:</td>
+                <td><input type="text" value="18381334816" name="projectBslxrdh"></td>
+            </tr>
+            <tr style="color:dimgrey;background-color:lightsteelblue;font-size: 24px">
+                <td colspan="8">项目分类</td>
+            </tr>
+            <tr>
+                <td>是否招商引资项目:</td>
+                <td><input type="checkbox" name="projectIzsyzxm"></td>
+                <td>是否国债项目:</td>
+                <td><input type="checkbox" name="projectIsgzxm"></td>
+                <td>是否引进项目:</td>
+                <td><input type="checkbox" name="projectIsyjxm"></td>
+                <td>是否政府投资项目:</td>
+                <td><input type="checkbox" name="projectIszftz"></td>
+            </tr>
+            <tr>
+                <td class="font-c">项目分类:</td>
+                <td colspan="2"><input type="text" name="projectXmfl">
+                    <input type="button" value="搜索"></td>
+                <td class="font-c">区县项目分类:</td>
+                <td colspan="2"><input type="text" name="projectQxxmfl">
+                    <input type="button" value="搜索"></td>
+            </tr>
+            <tr>
+                <td>是否节能减排项目:</td>
+                <td><input type="checkbox" name="projectIsjnjp"></td>
+            </tr>
+            <tr>
+                <td>是否新兴产业:</td>
+                <td><input type="checkbox" name="projectIsxxcy"></td>
+                <td>新兴产业分类:</td>
+                <td><select name="projectXxcyfl">
+                    <option value="(请选择)">(请选择)</option>
+                    <option value="电子商务">电子商务</option>
+                    <option value="计算机类">计算机类</option>
+                    <option value="金融投资">金融投资</option>
+                    <option value="环保行业">环保行业</option>
+                </select></td>
+                <td>所属市级战略功能区:</td>
+                <td><select name="projectSssjzlgnq">
+                    <option value="(请选择)">(请选择)</option>
+                    <option value="高新区">高新区</option>
+                    <option value="自流井区">自流井区</option>
+                    <option value="大安区">大安区</option>
+                    <option value="贡井区">贡井区</option>
+                </select></td>
+            </tr>
+            <tr style="color:dimgrey;background-color:lightsteelblue;font-size: 24px">
+                <td colspan="8">项目信息</td>
+            </tr>
+            <tr>
+                <td class="font-c">所在区(市)县:</td>
+                <td><select name="projectSzqx">
+                    <option value="(请选择)">(请选择)</option>
+                    <option value="高新区">高新区</option>
+                    <option value="自流井区">自流井区</option>
+                    <option value="大安区">大安区</option>
+                    <option value="贡井区">贡井区</option>
+                </select></td>
+                <td>建设状态:</td>
+                <td><select name="projectState">
+                    <option value="(请选择)">(请选择)</option>
+                    <option value="完美">完美</option>
+                    <option value="较好">较好</option>
+                    <option value="及格">及格</option>
+                    <option value="很差">很差</option>
+                </select></td>
+            </tr>
+            <tr>
+                <td class="font-c">预计总投资(万元):</td>
+                <td><input type="text" value="200.00" name="projectYjztz"></td>
+                <td>建设性质:</td>
+                <td><select name="projectJsxz">
+                    <option value="(请选择)">(请选择)</option>
+                    <option value="大型项目">大型项目</option>
+                    <option value="中型项目">中型项目</option>
+                    <option value="小型项目">小型项目</option>
+                </select></td>
+                <td class="font-c">建设年限:</td>
+                <td colspan="4">
+                    <select style="float: left;padding-top: 20px" name="projectJscsnx">
+                        <option value="(请选择)">(请选择)</option>
+                        <option value="2016年12月">2016年12月</option>
+                        <option value="2017年2月">2017年2月</option>
+                        <option value="2017年6月">2017年6月</option>
+                    </select>
+                    <h5 style="float: left">至</h5>
+                    <select style="float: left;padding-top: 20px" name="projectJszznx">
+                        <option value="(请选择)">(请选择)</option>
+                        <option value="2017年2月">2017年2月</option>
+                        <option value="2017年8月">2017年8月</option>
+                        <option value="2017年12月">2017年12月</option>
+                    </select></td>
+            </tr>
+            <tr>
+                <td>建设地址:</td>
+                <td><input type="text" value="富顺县" name="projectAddress"></td>
+            </tr>
+            <tr>
+                <td class="font-c">建设内容:</td>
+                <td colspan="6"><textarea name="txt" style="width: 100%;height: 100%"></textarea></td>
+            </tr>
+            <tr>
+                <td>建设背景:</td>
+                <td colspan="6"><textarea name="txt" style="width: 100%;height: 100%"></textarea></td>
+            </tr>
+            </tr>
+            <tr>
+                <td>预计经济和社会效益:</td>
+                <td colspan="6"><textarea name="txt" style="width: 100%;height: 100%"></textarea></td>
+            </tr>
+            </tr>
+            <tr>
+                <td>计划开工时间:</td>
+                <td><input type="datetime" value="" name="projectJhkgsj"></td>
+                <td>实际开工时间:</td>
+                <td><input type="datetime" value="" name="projectSjkgsj"></td>
+                <td>计划竣工时间:</td>
+                <td><input type="datetime" value="" name="projectJhjgsj"></td>
+                <td>实际开工时间:</td>
+                <td><input type="datetime" value="" name="projectSjjgsj"></td>
+            </tr>
+            <tr style="color:dimgrey;background-color:lightsteelblue;font-size: 24px">
+                <td colspan="8">市级主管部门:</td>
+            </tr>
+            <tr>
+                <td>分管领导:</td>
+                <td colspan="2"><input type="text" value="熊熊" name="projectFgld">
+                    <input type="button" value="搜索"></td>
+                <td>报送单位:</td>
+                <td colspan="2"><input type="text" value="自贡市人力资源局" name="projectBsdw">
+                    <input type="button" value="搜索"></td>
+            </tr>
+            <tr>
+                <td class="font-c">市级行业主管部门:</td>
+                <td colspan="2"><input type="text" 　value="自贡市总工会" name="projectSjhyglbm">
+                    <input type="button" value="搜索"></td>
+                <td class="font-c">责任部门:</td>
+                <td colspan="2"><input type="text" value="自贡市总工会" name="projectZrbm">
+                    <input type="button" value="搜索"></td>
+            </tr>
+        </table>
+        <br>
+        <br>
+        <div style="float: right ;margin-right: 50px">
+            <input type="button" value="取消" style="font-size: 24px;color:white;background-color: deepskyblue">
+            <input type="submit" value="下一步" style="font-size: 24px;color: white;background-color: blue">
+        </div>
+    </form>
+</div>
 </body>
 </html>

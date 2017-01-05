@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="http://static.runoob.com/assets/vue/1.0.11/vue.min.js"></script>
+<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>项目管理</title>
+</head>
+<body>
+<table id="app">
+
+    <tr v-for="project in projects">
+    <td>{{project.projectNumber}}</td>
+    <td>{{project.projectAddress}}</td>
+    <td></td>
+</tr>
+</table>
+</body>
+<script>
+    var site= new Vue({
+        el: '#app',
+        data: {
+            projects: [],
+        },
+        methods: {
+
+            setSite: function () {
+                $.ajax({
+                    type: "post",
+                    url: "../project/findAllProject",
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                        //  alert("date:"+ data);
+                        console.info(data)
+                        site.projects =data;
+                    }
+                });
+            }
+        },//        先加载里面的所有方法
+        ready: function () {
+            this.setSite();
+        }
+    })
+</script>
+</html>

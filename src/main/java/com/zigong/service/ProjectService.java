@@ -5,6 +5,7 @@ import com.zigong.model.project.Project;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -19,6 +20,8 @@ public class ProjectService {
      * 添加项目
      */
     public void addProject(Project project) {
+        Date date=new Date();
+        project.setProjectBssj(String.valueOf(date));
         projectDao.save(project);
     }
 
