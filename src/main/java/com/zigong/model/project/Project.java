@@ -21,6 +21,7 @@ public class Project {
 
     private String projectFgld;//分管领导
     private String projectBsdw;//报送单位
+    private String projectBssj;//报送时间
     private String projectSjhyglbm;//市级行业主管部门
     private String projectZrbm;//责任部门
 
@@ -56,6 +57,14 @@ public class Project {
     private Zsyzxm zsyzxm;//招商引资项目管理
 
     public Project() {
+    }
+
+    public String getProjectBssj() {
+        return projectBssj;
+    }
+
+    public void setProjectBssj(String projectBssj) {
+        this.projectBssj = projectBssj;
     }
 
     public Integer getProjectNumber() {
