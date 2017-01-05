@@ -16,40 +16,43 @@
     <script src="http://static.runoob.com/assets/vue/1.0.11/vue.min.js"></script>
 </head>
 <body id="mima">
-    <form role="form">
-        <div class="form-group">
-            <label>原密码</label>
-            <input id="" class="form-control">
-        </div>
-        <div class="form-group">
-            <label>新密码</label>
-            <input class="form-control">
-        </div>
-        <div class="form-group">
-            <label>重复新密码</label>
-            <input class="form-control">
-        </div>
-        <div class="form-group">
-            <button class="form-control">确定修改</button>
-        </div>
-    </form>
+<form role="form">
+    <div class="form-group">
+        <label>新密码</label>
+        <input id="b" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>重复新密码</label>
+        <input id="c" class="form-control">
+    </div>
+    <div class="form-group">
+        <button onclick="xiugai()" class="form-control">确定修改</button>
+    </div>
+</form>
 </body>
 </html>
 <script>
-    var mima = new Vue({
-        el: '#mima',
-        data: {
-            temps: {}
-        },
-        methods: {
-            get: function () {
-                $.ajax({
-                    url: "http://localhost:8080/log/gets",
-                    success: function (html) {
-                        app.temps = html;
-                    }
-                });
+    function xiugai() {
+        var userId;
+        if ($("#b").val() == $("#c").val()) {
+            var arr = document.cookie.split("; ");
+            for (var i in arr) {
+                var arr1 = arr[i].split("=");
+                if (arr1[0] == "id") {
+                    userId = arr1[1];
+                }
             }
+            $.ajax({
+                url: "http://localhost:8080/user/xiuGaiMima",
+                data: {userPassword: $("#b").val(), userId: userId},
+                success: function (html) {
+
+                }
+            });
+            console.info("dsadsa")
+            location.href = "http://localhost:8080/";
+        } else {
+            alert("两次密码不相同");
         }
-    })
+    }
 </script>
