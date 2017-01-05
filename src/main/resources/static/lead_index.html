@@ -17,31 +17,6 @@
             }
         });
     </script>
-    <script>
-        var site= new Vue({
-            el: '#ProjectType',
-            data: {
-                projectTypes: [],
-            },
-            methods: {
-                setSite: function () {
-                    $.ajax({
-                        type: "post",
-                        url: "lead/findProjectType",
-                        contentType: "application/json; charset=utf-8",
-                        success: function (data) {
-                            var d=$("input#showTime").val(eval('(' + data.d + ')')[0].demoData);
-                            alert("date:"+ d)
-                            this.projectTypes =[d];
-                        }
-                    });
-                }
-            },//        先加载里面的所有方法
-            ready: function () {
-                this.setSite();
-            }
-        })
-    </script>
 </head>
 <body>
 <div class="div">
@@ -103,12 +78,12 @@
                         </thead>
                         <tbody id="ProjectType">
                         <tr v-for="p in projectTypes">
-                            <td>重点项目库</td>
-                            <td>{{p.projectAddress}}</td>
-                            <td>10487.5</td>
-                            <td>182</td>
-                            <td>191</td>
-                            <td>0</td>
+                            <td>{{p.projectTypeName}}</td>
+                            <td>{{p.projectTypeNum}}</td>
+                            <td>{{p.totalInv}}</td>
+                            <td>{{p.oneBillion}}</td>
+                            <td>{{p.fiveMillion}}</td>
+                            <td>{{p.projectCompletion}}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -330,6 +305,31 @@
     <span class="div3-1">技术支持：自贡市经济信息中心电子政务技术部；电话：110</span>
 </div>
 </div>
+
+<script>
+    var site= new Vue({
+        el: '#ProjectType',
+        data: {
+            projectTypes: [],
+        },
+        methods: {
+            setSite: function () {
+                $.ajax({
+                    type: "post",
+                    url: "lead/findProjectCount",
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                      //  alert("date:"+ data);
+                        site.projectTypes =data;
+                    }
+                });
+            }
+        },//        先加载里面的所有方法
+        ready: function () {
+            this.setSite();
+        }
+    })
+</script>
 <!--设置图片轮播样式-->
 <script>
     <!--
