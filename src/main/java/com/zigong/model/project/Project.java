@@ -3,7 +3,8 @@ package com.zigong.model.project;
 import javax.persistence.*;
 import java.util.Date;
 
-/**项目
+/**
+ * 项目
  * Created by 罗健 on 2016/12/28.
  */
 @Entity
@@ -14,10 +15,10 @@ public class Project {
 
     private String projectName; //项目名称
 
-    private Integer projectOwner;//项目业主
-    private Integer projectFddbr;//项目法人代表
-    private Integer projectBslxr;//项目报送联系人
-    private Integer projectBslxrdh;//项目报送联系人手机
+    private String projectOwner;//项目业主
+    private String projectFddbr;//项目法人代表
+    private String projectBslxr;//项目报送联系人
+    private String projectBslxrdh;//项目报送联系人手机
 
     private String projectFgld;//分管领导
     private String projectBsdw;//报送单位
@@ -27,7 +28,7 @@ public class Project {
 
     private String projectSzqx;//所在区县
     private String projectState;//建设状态
-    private double projectYjztz;//预计总投资
+    private Double projectYjztz;//预计总投资
     private String projectJsxz;//建设性质
     private String projectJscsnx;//建设初始年
     private String projectJszznx;//建设最终年
@@ -59,14 +60,6 @@ public class Project {
     public Project() {
     }
 
-    public String getProjectBssj() {
-        return projectBssj;
-    }
-
-    public void setProjectBssj(String projectBssj) {
-        this.projectBssj = projectBssj;
-    }
-
     public Integer getProjectNumber() {
         return projectNumber;
     }
@@ -83,35 +76,35 @@ public class Project {
         this.projectName = projectName;
     }
 
-    public Integer getProjectOwner() {
+    public String getProjectOwner() {
         return projectOwner;
     }
 
-    public void setProjectOwner(Integer projectOwner) {
+    public void setProjectOwner(String projectOwner) {
         this.projectOwner = projectOwner;
     }
 
-    public Integer getProjectFddbr() {
+    public String getProjectFddbr() {
         return projectFddbr;
     }
 
-    public void setProjectFddbr(Integer projectFddbr) {
+    public void setProjectFddbr(String projectFddbr) {
         this.projectFddbr = projectFddbr;
     }
 
-    public Integer getProjectBslxr() {
+    public String getProjectBslxr() {
         return projectBslxr;
     }
 
-    public void setProjectBslxr(Integer projectBslxr) {
+    public void setProjectBslxr(String projectBslxr) {
         this.projectBslxr = projectBslxr;
     }
 
-    public Integer getProjectBslxrdh() {
+    public String getProjectBslxrdh() {
         return projectBslxrdh;
     }
 
-    public void setProjectBslxrdh(Integer projectBslxrdh) {
+    public void setProjectBslxrdh(String projectBslxrdh) {
         this.projectBslxrdh = projectBslxrdh;
     }
 
@@ -129,6 +122,14 @@ public class Project {
 
     public void setProjectBsdw(String projectBsdw) {
         this.projectBsdw = projectBsdw;
+    }
+
+    public String getProjectBssj() {
+        return projectBssj;
+    }
+
+    public void setProjectBssj(String projectBssj) {
+        this.projectBssj = projectBssj;
     }
 
     public String getProjectSjhyglbm() {
@@ -163,11 +164,11 @@ public class Project {
         this.projectState = projectState;
     }
 
-    public double getProjectYjztz() {
+    public Double getProjectYjztz() {
         return projectYjztz;
     }
 
-    public void setProjectYjztz(double projectYjztz) {
+    public void setProjectYjztz(Double projectYjztz) {
         this.projectYjztz = projectYjztz;
     }
 

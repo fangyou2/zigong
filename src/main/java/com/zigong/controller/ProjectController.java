@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -24,9 +26,13 @@ public class ProjectController {
      * @return
      */
     @RequestMapping("/addProject")
-    public String addProject(Project project) {
+    public void addProject(HttpServletResponse response,Project project) {
         projectService.addProject(project);
-        return null;
+        try {
+            response.sendRedirect("../back_interface/back_project.html");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
