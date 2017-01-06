@@ -39,7 +39,7 @@ public class UserService {
         boolean result = false;
         if(session!=null&&user.getUserId()==session.getUserId()){
             session.setUserPassword(user.getUserPassword());
-            Object save = userDao.save(user);
+            Object save = userDao.save(session);
             if (save != null) {
                 result = true;
             }

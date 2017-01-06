@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户信息</title>
+    <script src="http://cdn.gbtags.com/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://cdn.gbtags.com/twitter-bootstrap/3.2.0/js/bootstrap.js"></script>
+    <script src="http://cdn.gbtags.com/summernote/0.5.2/summernote.min.js"></script>
+    <script src="http://cdn.bootcss.com/summernote/0.8.2/lang/summernote-zh-CN.min.js"></script>
+    <link rel="stylesheet" rev="stylesheet" href="http://cdn.gbtags.com/twitter-bootstrap/3.2.0/css/bootstrap.css"
+          type="text/css" media="all"/>
+    <link rel="stylesheet" rev="stylesheet" href="http://cdn.gbtags.com/font-awesome/4.1.0/css/font-awesome.min.css"
+          type="text/css" media="all"/>
+    <link rel="stylesheet" rev="stylesheet" href="http://cdn.gbtags.com/summernote/0.5.2/summernote.css" type="text/css"
+          media="all"/>
+    <script src="http://static.runoob.com/assets/vue/1.0.11/vue.min.js"></script>
+</head>
+<body id="mima">
+<form role="form">
+    <div class="form-group">
+        <label>新密码</label>
+        <input id="b" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>重复新密码</label>
+        <input id="c" class="form-control">
+    </div>
+    <div class="form-group">
+        <button onclick="xiugai()" class="form-control">确定修改</button>
+    </div>
+</form>
+</body>
+</html>
+<script>
+    function xiugai() {
+        var userId;
+        if ($("#b").val() == $("#c").val()) {
+            var arr = document.cookie.split("; ");
+            for (var i in arr) {
+                var arr1 = arr[i].split("=");
+                if (arr1[0] == "id") {
+                    userId = arr1[1];
+                }
+            }
+            $.ajax({
+                url: "http://localhost:8080/user/xiuGaiMima",
+                data: {userPassword: $("#b").val(), userId: userId},
+                success: function (html) {
+
+                }
+            });
+            console.info("dsadsa")
+            location.href = "http://localhost:8080/";
+        } else {
+            alert("两次密码不相同");
+        }
+    }
+</script>
