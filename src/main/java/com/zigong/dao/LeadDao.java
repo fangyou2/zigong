@@ -1,5 +1,6 @@
 package com.zigong.dao;
 
+import com.zigong.model.lead.News;
 import com.zigong.model.project.Project;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Component;

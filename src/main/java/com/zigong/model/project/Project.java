@@ -1,7 +1,12 @@
 package com.zigong.model.project;
 
+import com.zigong.model.Mail;
+import com.zigong.model.lead.News;
+
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * 项目
@@ -56,6 +61,8 @@ public class Project {
     private Reserve reserve;//储备项目信息
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "project")
     private Zsyzxm zsyzxm;//招商引资项目管理
+    @OneToMany(cascade=CascadeType.ALL,mappedBy ="project",fetch = FetchType.LAZY)
+    private Set<News> newsSet=new HashSet<News>();
 
     public Project() {
     }
@@ -354,5 +361,13 @@ public class Project {
 
     public void setZsyzxm(Zsyzxm zsyzxm) {
         this.zsyzxm = zsyzxm;
+    }
+
+    public Set<News> getNewsSet() {
+        return newsSet;
+    }
+
+    public void setNewsSet(Set<News> newsSet) {
+        this.newsSet = newsSet;
     }
 }

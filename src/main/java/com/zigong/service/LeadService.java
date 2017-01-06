@@ -1,7 +1,9 @@
 package com.zigong.service;
 
 import com.zigong.dao.LeadDao;
+import com.zigong.dao.LeadNewsDao;
 import com.zigong.model.lead.CountProject;
+import com.zigong.model.lead.News;
 import com.zigong.model.project.Project;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -16,6 +18,8 @@ import java.util.*;
 public class LeadService {
     @Autowired
     private LeadDao leadDao;
+    @Autowired
+    private LeadNewsDao leadNewsDao;
 //    查询project里面所有的内容
     public List<Project> findProject() {List<Project> projects=leadDao.findAll();return projects;}
 //    根据id查询
@@ -78,5 +82,30 @@ public Project findById(Integer id) {Project projects=leadDao.findByProjectNumbe
         }
         countProjects.add(new CountProject(t,"系统共报送：",allc));
         return countProjects;
+    }
+
+
+//    新闻模块
+    //    添加动态新闻
+    public void addNews(News news) {
+        leadNewsDao.save(news);
+    }
+    //    修改动态新闻
+    public void updateNews(News news) {
+        leadNewsDao.save(news);
+    }
+
+    //     工具发布日期查询
+    public News findByNewsId(String data) {News news=leadNewsDao.findByNewsPublishTime(data);return news;}
+
+    //    删除动态新闻
+    public void deleteNews(Integer id) {
+        leadNewsDao.delete(id);
+    }
+
+//    查询出动态新闻
+    public List<News> findNews() {
+        List<News> newsSet=leadNewsDao.findAll();
+        return newsSet;
     }
 }

@@ -1,6 +1,7 @@
 package com.zigong.controller;
 
 import com.zigong.model.lead.CountProject;
+import com.zigong.model.lead.News;
 import com.zigong.model.project.Project;
 import com.zigong.service.LeadService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,4 +55,12 @@ public Set<CountProject> findProjectCount(){
         Set<CountProject> countProjects=leadService.findProjectReport("自贡市,自流井区,沿滩区,大安区,富顺县");
         return countProjects;
     }
+
+//    查询动态新闻
+    @RequestMapping(value = "/findNews")
+    public List<News> findNews(){
+        List<News> newsSet=leadService.findNews();
+        return newsSet;
+    }
+
 }
