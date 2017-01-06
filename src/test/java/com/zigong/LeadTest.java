@@ -1,6 +1,7 @@
 package com.zigong;
 
 import com.zigong.dao.LeadDao;
+import com.zigong.model.lead.CountProject;
 import com.zigong.model.project.Project;
 import com.zigong.service.LeadService;
 import org.junit.Assert;
@@ -9,7 +10,11 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -39,6 +44,7 @@ public class LeadTest {
           project.setProjectXmfl("项目储备库");
 //        project.setProjectXmfl("全市项目库");
         project.setProjectAddress("大安区");
+        project.setProjectBssj(String.valueOf(new Date()));
         leadService.save(project);
 
     }
@@ -62,4 +68,20 @@ public class LeadTest {
         Set<Project> projects=leadService.countTypeNum();
         System.out.println(projects.size());
     }
+
+    @Test
+    public void date(){
+        Calendar c = Calendar.getInstance();
+        c.add(Calendar.MONTH, -1);
+        SimpleDateFormat format =  new SimpleDateFormat("yyyy-MM");
+        String time = format.format(c.getTime());
+        System.out.println(time);
+    }
+
+   @Test
+    public void findProjectCount(){
+        Set<CountProject> countProjects=leadService.findProjectCount("重点项目库,灾后重建项目库,项目储备库,全市项目库");
+       System.out.println(countProjects.size());
+    }
+
 }

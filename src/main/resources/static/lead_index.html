@@ -76,14 +76,14 @@
                             <th width="17%">已完工项目数</th>
                         </tr>
                         </thead>
-                        <tbody id="ProjectType">
+                        <tbody id="ProjectType1">
                         <tr v-for="p in projectTypes">
-                            <td>{{p.projectTypeName}}</td>
-                            <td>{{p.projectTypeNum}}</td>
-                            <td>{{p.totalInv}}</td>
-                            <td>{{p.oneBillion}}</td>
-                            <td>{{p.fiveMillion}}</td>
-                            <td>{{p.projectCompletion}}</td>
+                              <td>{{p.projectTypeName}}</td>
+                              <td>{{p.projectTypeNum}}</td>
+                              <td>{{p.totalInv}}</td>
+                              <td>{{p.oneBillion}}</td>
+                              <td>{{p.fiveMillion}}</td>
+                              <td>{{p.projectCompletion}}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -100,8 +100,8 @@
                 <div class="div2-1-3-2-1">
                     <h2>市发改革动态</h2>
                     <ul>
-                        <li>咖啡...  2016/12/28</li>
-                        <li>茶... 2016/12/28</li>
+                        <li>2016年第四季度自贡市灾后...  2016/12/28</li>
+                        <li>2016年第四季度自贡市重点... 2016/12/28</li>
                         <li>牛奶... 2016/12/28</li>
                         <li>面包...2016/12/28</li>
                         <li>鸡蛋... 2016/12/28</li>
@@ -151,7 +151,7 @@
             </div>
             <div class="div2-1-4-2">
                 <div class="div2-1-4-2-1">
-                    <h2>市发改革动态</h2>
+                    <h2>经济形势</h2>
                     <ul>
                         <li>咖啡...  2016/12/28</li>
                         <li>茶... 2016/12/28</li>
@@ -162,7 +162,7 @@
                     <a href="#"><button >更多</button></a>
                 </div>
                 <div class="div2-1-4-2-2">
-                    <h2>市级部门项目动态</h2>
+                    <h2>经济研究</h2>
                     <ul>
                         <li>咖啡...  2016/12/28</li>
                         <li>茶... 2016/12/28</li>
@@ -182,7 +182,16 @@
             <div class="div2-2-1-1">
                 <a href="#">项目报送情况</a>
             </div>
-            <span class="div2-2-1-2"> &nbsp;&nbsp;今天是个好日子今天是个好日子今天是个好日子今天是个好日子今天是个好日子今天是个好日子...</span>
+            <span class="div2-2-1-2">
+                <div id="ProjectType2">
+                <span v-for="p in projectReport">
+                        <p>{{p.projectSubmittedMonth}}<span style="color: black">:</span>{{p.address}}<span style="color: black">项目报送</span>{{p.projectSubmittedNum}}<span style="color: black">个</span></p>
+                </span>
+                </div>
+                <!--<div v-if="(p.type == 'xmbsqk')"></div>-->
+                <!--2016年12月系统共报送项目65个，其中自贡市项目0个,自流井区1个，大安区0个-->
+
+            </span>
         </div>
         <div class="div2-2-2">
             <div class="div2-2-2-1">
@@ -308,7 +317,7 @@
 
 <script>
     var site= new Vue({
-        el: '#ProjectType',
+        el: '#ProjectType1',
         data: {
             projectTypes: [],
         },
@@ -330,9 +339,35 @@
         }
     })
 </script>
+<script>
+    var site2= new Vue({
+        el: '#ProjectType2',
+        data: {
+            projectReport: [],
+        },
+        methods: {
+            setSite2: function () {
+                $.ajax({
+                    type: "post",
+                    url: "lead/findProjectReport",
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+//                        alert("date:"+ data);
+//                        $(data).each(function(index,item){
+//                            alert(index+":前面索引，后面值:"+item)
+//                        })
+                            site2.projectReport =data;
+                    }
+                });
+            }
+        },//        先加载里面的所有方法
+        ready: function () {
+            this.setSite2();
+        }
+    })
+</script>
 <!--设置图片轮播样式-->
 <script>
-    <!--
     function runImg(){}
     runImg.prototype={
         bigbox:null,//最外层容器
@@ -486,7 +521,7 @@
         runimg.info("#box");
         runimg.action("#box");
     }
-    -->
+
 </script>
 </body>
 </html>

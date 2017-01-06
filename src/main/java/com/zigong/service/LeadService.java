@@ -6,10 +6,8 @@ import com.zigong.model.project.Project;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 /**
  * Created by Administrator on 2016/12/30.
@@ -59,6 +57,26 @@ public Project findById(Integer id) {Project projects=leadDao.findByProjectNumbe
             }
             countProjects.add(new CountProject(s[i],projects.size(),totalInv,oneBillion,fiveMillion,projectCompletion));
         }
+        return countProjects;
+    }
+
+    //    项目报送情况
+    public Set<CountProject> findProjectReport(String address) {
+        Set<CountProject> countProjects=new HashSet<>();
+        //获取上一月项目报送情况
+        Calendar c = Calendar.getInstance();
+        c.add(Calendar.MONTH, -1);
+        SimpleDateFormat format =  new SimpleDateFormat("yyyy-MM");
+        String t = format.format(c.getTime());
+        String time = format.format(c.getTime())+"%"; //模糊查询，字符串拼装
+        String[] a=address.split(",");
+        int allc=0; //累加所有的数量
+        for (int j=0;j<a.length;j++){
+            Set<Project> p=leadDao.findByProjectSzqxAndProjectBssjLike(a[j],time);
+            allc+=p.size();
+            countProjects.add(new CountProject(t,a[j],p.size()));
+        }
+        countProjects.add(new CountProject(t,"系统共报送：",allc));
         return countProjects;
     }
 }

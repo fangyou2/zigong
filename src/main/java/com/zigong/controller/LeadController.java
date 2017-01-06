@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -45,4 +48,10 @@ public Set<CountProject> findProjectCount(){
     Set<CountProject> countProjects=leadService.findProjectCount("重点项目库,灾后重建项目库,项目储备库,全市项目库");
     return countProjects;
 }
+
+    @RequestMapping(value = "/findProjectReport")
+    public Set<CountProject> findProjectReport(){
+        Set<CountProject> countProjects=leadService.findProjectReport("自贡市,自流井区,沿滩区,大安区,富顺县");
+        return countProjects;
+    }
 }
