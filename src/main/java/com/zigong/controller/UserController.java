@@ -1,11 +1,8 @@
 package com.zigong.controller;
 
-import com.zigong.dao.TestDao;
-import com.zigong.model.TestModel;
 import com.zigong.model.User;
 import com.zigong.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -59,6 +56,7 @@ public class UserController {
     @ResponseBody
     public User getName(HttpSession session) {
         User user = (User) session.getAttribute("user");
+        user = userService.login(user);
         user.setGroups(null);
         user.setLog(null);
         user.setMail(null);

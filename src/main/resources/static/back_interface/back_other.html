@@ -15,26 +15,63 @@
           media="all"/>
     <script src="http://static.runoob.com/assets/vue/1.0.11/vue.min.js"></script>
 </head>
-<body>
-    <form role="form">
-        <div class="form-group">
-            <label>用户名</label>
-            <input class="form-control">
-        </div>
-        <div class="form-group">
-            <label>详细地址</label>
-            <input class="form-control">
-        </div>
-        <div class="form-group">
-            <label>联系号码</label>
-            <input class="form-control">
-        </div>
-        <div class="form-group">
-            <button class="form-control">确定修改</button>
-        </div>
-    </form>
+<body id="other">
+<form role="form">
+    <div class="form-group">
+        <label>用户名</label>
+        <input v-model="user.userName" type="text" id="a" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>详细地址</label>
+        <input v-model="user.userAddress" type="text" id="b" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>联系号码</label>
+        <input v-model="user.userPhone" type="number" id="c" class="form-control">
+    </div>
+    <div class="form-group">
+        <button onclick="xiugai()" class="form-control">确定修改</button>
+    </div>
+</form>
 </body>
 </html>
 <script>
-    
+    function xiugai() {
+        var userId;
+        var arr = document.cookie.split("; ");
+        for (var i in arr) {
+            var arr1 = arr[i].split("=");
+            if (arr1[0] == "id") {
+                userId = arr1[1];
+            }
+        }
+        $.ajax({
+            url: "http://localhost:8080/user/xiuGaiOther",
+            data: {userName:$("#a").val(),userAddress:$("#b").val(),userPhone:$("#c").val(), userId: userId},
+            success: function (html) {
+
+            }
+        });
+        alert("修改成功");
+        window.parent.location.href="http://localhost:8080/back_interface/back_login.html";
+    }
+    var other=new Vue({
+        el: '#other',
+        data: {
+            user: {}
+        },
+        methods: {
+            get: function () {
+                $.ajax({
+                    url: "http://localhost:8080/user/get",
+                    success: function(html){
+                        other.user=html;
+                    }
+                });
+            }
+        },
+        ready: function () {
+            this.get();
+        }
+    })
 </script>
