@@ -87,20 +87,42 @@ public Project findById(Integer id) {Project projects=leadDao.findByProjectNumbe
 
 //    新闻模块
     //    添加动态新闻
-    public void addNews(News news) {
-        leadNewsDao.save(news);
-    }
-    //    修改动态新闻
-    public void updateNews(News news) {
-        leadNewsDao.save(news);
+    public boolean addNews(News news) {
+        boolean isOk=false;
+        Object count=leadNewsDao.save(news);
+        if (count!=null){
+            isOk=true;
+        }
+        return isOk;
     }
 
-    //     工具发布日期查询
-    public News findByNewsId(String data) {News news=leadNewsDao.findByNewsPublishTime(data);return news;}
+    //    修改动态新闻
+    public boolean updateNews(News news) {
+        boolean isOk=false;
+        Object count=leadNewsDao.save(news);
+        if (count!=null){
+            isOk=true;
+        }
+        return isOk;
+    }
+
+    //     根据发布日期查询
+    public News findByNewsPublishTime(String data) {News news=leadNewsDao.findByNewsPublishTime(data);return news;}
+
+    //     根据id查询
+    public News findByNewsId(int id) {
+        News news=leadNewsDao.findByNewsId(id);
+        return news;
+    }
 
     //    删除动态新闻
-    public void deleteNews(Integer id) {
-        leadNewsDao.delete(id);
+    public boolean deleteNews(Integer id) {
+        boolean isOk=true;
+       leadNewsDao.delete(id);
+//        if (count!=null){
+//            isOk=true;
+//        }
+        return isOk;
     }
 
 //    查询出动态新闻

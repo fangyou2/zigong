@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -62,5 +64,46 @@ public Set<CountProject> findProjectCount(){
         List<News> newsSet=leadService.findNews();
         return newsSet;
     }
+    //    添加新闻
+    @RequestMapping(value = "/addNews")
+    public String addNews(HttpServletResponse response,News news) throws IOException {
+        Calendar c = Calendar.getInstance();
+        c.add(Calendar.MONTH, -1);
+        SimpleDateFormat format =  new SimpleDateFormat("yyyy-MM-dd");
+        String time = format.format(c.getTime());
 
+        news.setNewsPublishTime(time);
+        boolean isOk=leadService.addNews(news);
+        if (isOk){
+           response.sendRedirect("../back_viewNews.html");
+        }
+        return "新闻添加“失败”";
+    }
+
+    //在修改之前，先根据id查询出数据
+    @RequestMapping(value = "/findByNewsId")
+    public News findByNewsId(News news) {
+        News news1=leadService.findByNewsId(news.getNewsId());
+            return news1;
+    }
+
+    //修改新闻(时间为2017-1的记录)
+    @RequestMapping(value = "/updateNews")
+    public String updateNews(HttpServletResponse response,News news) throws IOException {
+        boolean isOk=leadService.updateNews(news);
+        if (isOk){
+            response.sendRedirect("../back_viewNews.html");
+        }
+        return "新闻修改“失败”";
+    }
+
+    //删除一条记录
+    @RequestMapping(value = "/deleteNews")
+    public String deleteNews(HttpServletResponse response,News news) throws IOException {
+        boolean isOk=leadService.deleteNews(news.getNewsId());
+        if (isOk){
+            response.sendRedirect("../back_viewNews.html");
+        }
+        return "新闻删除“失败”";
+    }
 }

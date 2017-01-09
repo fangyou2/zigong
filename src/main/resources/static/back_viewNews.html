@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="http://static.runoob.com/assets/vue/1.0.11/vue.min.js"></script>
+    <style>
+        th {text-align:center}
+    </style>
+    <script type="text/javascript">
+        var newId;
+        function modify(id){
+            newId=id
+            alert(newId);
+//              查询列表隐藏
+            document.getElementById("panel-779928").hide();
+//              修改显示
+            document.getElementById("panel-779929").show();
+
+            var site3= new Vue({
+                el: '#ProjectType4',
+                data: {
+                    news: [],
+                },
+                methods: {
+                    setSite: function () {
+                        $.ajax({
+                            type: "post",
+                            url: "lead/findByNewsId?newsId="+newId,
+                            contentType: "application/json; charset=utf-8",
+                            success: function (data) {
+                                alert("date:"+ data);
+                                site3.news =data;
+                            }
+                        });
+                    }
+                },
+                ready: function () {
+                    this.setSite();
+                }
+            })
+        }
+
+
+
+    </script>
+</head>
+<body>
+<div class="header" style="height: 80px;background-color: #dedede"><span style="color: #660000 ;font-size: 32px">新闻管理</span></div>
+<div class="container">
+    <div class="row clearfix" >
+        <div class="col-md-10 column">
+            <div class="tabbable" id="tabs-143471">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="panel-779928" >
+                        <span style="font-size: 24px;color: #ff6600;text-align: center">查看新闻</span></p>
+                        <table class="tablesorter" cellspacing="0" border="1" width="80%">
+                            <thead>
+                            <tr>
+                                <th width="6%">多选</th>
+                                <th width="7%">编号</th>
+                                <th width="20%">新闻类型</th>
+                                <th width="30%">新闻标题</th>
+                                <th width="20%">作者</th>
+                                <th width="17%">操作</th>
+                            </tr>
+                            </thead>
+                            <tbody id="ProjectType3" style="color: #ff6600">
+                            <tr v-for="n in news">
+                                <td style="text-align:center;"><input type="checkbox"></td>
+                                <td style="text-align:center;" id="id">{{n.newsId}}</td>
+                                <td>{{n.newsColumn}}</td>
+                                <td>{{n.newsTit}}</td>
+                                <td>{{n.newsPublisher}}</td>
+                                <input type="hidden" value={{n.newsId}}>
+                                <td><a href="#" data-toggle="tab" class="btn btn-info" onclick="modify('{{n.newsId}}')" >修改</a> | <a href="lead/deleteNews?newsId={{n.newsId}}" class="btn btn-danger">删除</a></td>
+                                <!--<td><a href="#" id="modify" class="btn btn-info" >修改</a> | <a href="lead/deleteNews?newsId={{n.newsId}}" class="btn btn-danger">删除</a></td>-->
+
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div class="row clearfix">
+                            <div class="col-md-12 column">
+                                <ul class="pagination">
+                                    <li><a href="#">上一页</a></li>
+                                    <li><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#">4</a></li>
+                                    <li><a href="#">5</a></li>
+                                    <li><a href="#">下一页</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--修改新闻模块-->
+                    <div class="tab-pane" id="panel-779929" id="ProjectType4">
+                        <span style="font-size: 24px;color: #ff6600;text-align: center">修改新闻</span></p>
+                            <form action="lead/updateNews" method="get"  v-for="n in news">
+                                <span style="font-size: 24px;color: #ff6600;text-align: center">正在修改编号为（{{n.newsId}}）的新闻</span></p>
+                                新闻栏目:<input type="text" name="newsColumn" value="区市县动态"></p>
+                                新闻标题 :<input type="text" name="newsTit"  value="贡井水库项目今天已经开工了"></p>
+                                新闻描述<br><textarea name="newsDesc" cols="50" rows="10" placeholder="输入新闻内容..." >贡井水库项目今天已经开工了，在贡井举行了开工仪式</textarea><br>
+                                发布方:<input type="text" name="newsPublisher" value="小明"></p>
+                                <a href="#panel-779928"  data-toggle="tab" class="btn btn-default" style="background-color:burlywood">后退</a>
+                                <input type="submit" class="btn btn-default" value="提交" style="background-color:limegreen">
+                            </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2 column">
+            <ul id="1" class="nav nav-list" style="float: left;margin-top: 250px">
+                <li style="width: 100px;"><a href="#panel-779928" data-toggle="tab" class="list-group-item" style="background-color:gold">查看</a></li>
+                <li style="width: 100px; "><a href="#" data-toggle="tab" class="list-group-item" style="background-color:dodgerblue">修改</a></li>
+                <li style="width: 100px; "><a href="back_addNews.html"  class="list-group-item" style="background-color:rebeccapurple;color: inherit">添加</a></li>
+                <li style="width: 100px; "><a href="back_addNews.html"  class="list-group-item" style="background-color:red">删除</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="footer" style="height: 62px;background-color: #dedede"><span style="color: #660000 ;font-size: 24px"></span></div>
+<script>
+    var site3= new Vue({
+        el: '#ProjectType3',
+        data: {
+            news: [],
+        },
+        methods: {
+            setSite: function () {
+                $.ajax({
+                    type: "post",
+                    url: "lead/findNews",
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                      //  alert("date:"+ data);
+                        site3.news =data;
+                    }
+                });
+            }
+        },
+        ready: function () {
+            this.setSite();
+        }
+    })
+</script>
+</body>
+</html>

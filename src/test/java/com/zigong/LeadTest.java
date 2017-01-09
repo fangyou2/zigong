@@ -107,17 +107,17 @@ public class LeadTest {
           //String newsColumns="区市县动态";
           //String newsColumns="其它市动态";
       //    String newsColumns="经济形势";
-        String newsColumns="经济研究";
-   // String newsColumns="问题通报";
+        //String newsColumns="经济研究";
+    String newsColumns="问题通报";
 //      String newsColumns="图片信息";
             news.setNewsColumn(newsColumns);
-            news.setNewsTit("新闻标题"+"---"+newsColumns);
+            news.setNewsTit("新闻标题oo"+"---"+newsColumns);
             news.setNewsDesc("新闻描述"+"---"+newsColumns);
             news.setNewsPublisher("新闻发布方"+newsColumns);
             news.setNewsPublishTime(time);
 
-        leadService.addNews(news);
-
+        boolean isOk=leadService.addNews(news);
+        System.out.println(isOk);
     }
 
     //修改时间为2017-1的记录
@@ -130,9 +130,9 @@ public class LeadTest {
         SimpleDateFormat format =  new SimpleDateFormat("yyyy-MM-dd");
         String time = format.format(c.getTime());
 
-        News news=leadService.findByNewsId(time2);
+        News news=leadService.findByNewsPublishTime(time2);
         news.setNewsPublishTime(time);
-        leadService.addNews(news);
+        leadService.updateNews(news);
 
     }
 

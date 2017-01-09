@@ -12,4 +12,5 @@ import java.util.Set;
 @Component
 public interface LeadNewsDao extends JpaRepository<News,Integer> {
     News findByNewsPublishTime(String data);
+    News findByNewsId(Integer id);
 }
